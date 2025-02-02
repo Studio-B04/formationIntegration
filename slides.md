@@ -3,7 +3,7 @@
 theme: default
 author: Thomas PIERRE for StudioB04
 titleTemplate: '%s | StudioB04'
-title: Bachelor 3 Développeur WEB - Application WEB
+title: StudioB04
 keywords: Formation, Svelte, Web, Javascript
 favicon: favicon.png
 colorSchema: light
@@ -39,9 +39,6 @@ transition: fade-out
 src: ./slides/accueil.html
 ---
 
-# <span v-mark.red="3"><code>v-mark</code> directive</span>
-
-
 --- 
 title: Programme
 src: ./slides/programme.html
@@ -50,24 +47,4 @@ src: ./slides/programme.html
 --- 
 title: Introduction
 src: ./slides/moi.html
----
-
---- 
-title: L'environnement Web
-src: ./slides/environnement.html
----
-
---- 
-title: L'environnement Web
-src: ./slides/devTools.html
----
-
---- 
-title: Le projet
-src: ./slides/projet.html
----
-
---- 
-title: Les bases
-src: ./slides/conclusion.html
 ---
