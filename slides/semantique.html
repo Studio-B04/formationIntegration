@@ -1,0 +1,491 @@
+---
+layout: center
+transition: slide-up
+class: text-center
+---
+
+<h1 class="!text-6xl">1. La sémantique HTML</h1>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Qu'est-ce que la sémantique en HTML ?</h1>
+
+<h2 v-click text-light>Définition</h2>
+
+<p v-after>"La sémantique en <b>HTML</b> consiste à utiliser des balises qui donnent du sens au contenu, permettant aux navigateurs, aux moteurs de recherche et aux technologies d'assistance (ex. lecteurs d'écran) de mieux interpréter une page web."</p>
+
+<p v-click>Concrètement cela signifie que l'utilisation d'une balise peux modifier la compréhension d'un page Web et donc pénaliser le <b>SEO</b> ou l'<b>accessibilité</b></p>
+
+<div v-click flex mbs-20>
+  <Alert type="idea" title="Petit défi" text="Il existe plus de [100 balises différentes](https://jaetheme.com/tutoriels-ui/liste-des-balises-html5/) en HTLM5, chacune a un rôle bien précis. <br/>Combien pouvez vous en citer ? Jouons à un [petit jeu](https://www.sporcle.com/games/drywall/html_elements) ! "/>
+</div>
+
+<SlideFooter/>
+
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Pourquoi est-ce important ?</h1>
+
+<ul mis-10>
+  <ListItem label="♿ **Accessibilité** : facilite la navigation pour les personnes en situation de handicap"/>
+</ul>
+<p v-after mis-10>Les personnes non voyantes par exemple, utilisent des lecteurs d'écran qui vont décrire vocalement ce que la page contient. Le sens des balises est très important ici.</p>
+
+
+
+<ul mis-10>
+  <ListItem label="🔎 **S.E.O** : améliore le référencement naturel des pages web"/>
+</ul>
+<p v-after mis-10>Les moteurs de recherche comme <b>Goggle</b> ou <b>Bing</b> ne voient pas les pages mais interprètent le code <b>HTML</b>. Une page boien construite sera donc mieux référencée.</p>
+
+
+
+<ul mis-10>
+  <ListItem label="⚙️ **Maintenance** : un code plus lisible et compréhensible par les développeurs"/>
+</ul>
+<p v-after mis-10>Si un code <b>HTML</b> ext correctement structuré, on peux facilement déduire son apparence ou son fonctionnement juste en lisant le code, et donc gagner un temps précieux lors du développement et du déboguage.</p>
+
+
+<SlideFooter/>
+
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Prenons un exemple</h1>
+
+<div v-click flex gap-10 items-center justify-between>
+<p>
+  Ce code est <b>non sémantique</b>.
+  <br/>
+  <b>👉 Problème</b> : Les <kbd>div</kbd> n'ont pas de sens en elles-mêmes<br/>elles ne renseignent pas sur leur rôle.
+</p>
+```html
+<div id="header"></div>
+<div class="container">
+    <div class="nav"></div>
+    <div class="content"></div>
+</div>
+<div id="footer"></div>
+```
+</div>
+
+<div v-click mbs-5 flex gap-10 items-center justify-between>
+<p>
+  Il existe une balise appropriée pour chaque usage !
+  <br/>
+  <b>✅ Solution</b> : Les bonnes balises sont utilisées, on comprend <br/>mieux comment est structurée la page.
+</p>
+```html
+<header id="header"></header>
+<main class="container">
+    <nav class="nav"></nav>
+    <section class="content"></section>
+</main>
+<footer id="footer"></footer>
+```
+</div>
+
+<div v-click mbs-5 flex>
+  <Alert type="warning" title="Important" text="Même si ici les classes permettent de déduire le role de chaque <kbd>div</kbd>, ce n'est pas conforme, donc non accessible"/>
+</div>
+
+<SlideFooter/>
+
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les balises HTML sémantiques essentielles</h1>
+
+<p>Il y a quelques balises essentielles, sur lesquelles vous ne devez pas faire l'impasse : </p>
+
+<table text-sm>
+  <thead>
+    <tr>
+      <th><b>Balise</b></th>
+      <th><b>Rôle</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-click>
+      <td><kbd>&lt;header&gt;</kbd></td>
+      <td>En-tête de la page ou d'une section (si c'est le header principal du site, on ajoute <kbd>role="banner"</kbd> )</td>
+    </tr>
+    <tr v-click>
+      <td><kbd>&lt;footer&gt;</kbd></td>
+      <td>Pied de la page ou d'une section (si c'est le footer principal du site, on ajoute <kbd>role="contentinfo"</kbd> )</td>
+    </tr>
+    <tr v-click>
+      <td><kbd>&lt;main&gt;</kbd></td>
+      <td>Contenu principale de la page (doit être unique !)</td>
+    </tr>
+    <tr v-click>
+      <td><kbd>&lt;nav&gt;</kbd></td>
+      <td>Menu de navigation (doit contenir une liste de lien <kbd>&lt;ul&gt;</kbd> => <kbd>&lt;li&gt;</kbd> => <kbd>&lt;a&gt;</kbd> )</td>
+    </tr>
+    <tr v-click>
+      <td><kbd>&lt;aside&gt;</kbd></td>
+      <td>Contenu complémentaire, comme une sidebar par exemple.</td>
+    </tr>
+    <tr v-click>
+      <td><kbd>&lt;section&gt;</kbd></td>
+      <td>Regroupement thematique de contenu.</td>
+    </tr>
+    <tr v-click>
+      <td><kbd>&lt;a&gt;</kbd></td>
+      <td>Lien qui déclenche une redirection ou une ancre dans la page.</td>
+    </tr>
+    <tr v-click>
+      <td><kbd>&lt;button&gt;</kbd></td>
+      <td>Boutton qui déclenche une action (validation de formulaire, ajout au panier, etc.)</td>
+    </tr>
+  </tbody>
+</table>
+
+<SlideFooter/>
+
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les balises de titre</h1>
+
+<p>Il est très important de structurer votre contenu avec des titres dont l'ordre est logique <br/>Les lecteurs d'écran se basent dessus pour construire une table des matières de la page.</p>
+
+<p v-click>Il existe 6 niveau de titres :</p>
+
+<div v-after flex gap-5 items-center>
+  <h1 class="!text-light opacity-100 !m-0">&lt;h1&gt;</h1>
+  <h2 class="!text-light opacity-100 !m-0">&lt;h2&gt;</h2>
+  <h3 class="!text-light opacity-100 !m-0">&lt;h3&gt;</h3>
+  <h4 class="!text-light opacity-100 !m-0">&lt;h4&gt;</h4>
+  <h5 class="!text-light opacity-100 !m-0">&lt;h5&gt;</h5>
+  <h6 class="!text-light opacity-100 !m-0">&lt;h6&gt;</h6>
+</div>
+
+<div v-after flex mbs-10>
+  <Alert type="danger" title="Important !" text="Si vous n'appliquez aucun CSS, le navigateur va par défaut utiliser des tailles de texte de plus en plus petites pour différencier les titres de la page. Il ne faut pas choisir une balise pour son style, on peux tout à fait vouloir un très gros titre mais de type <kbd>h3</kbd> par exemple."/>
+</div> 
+
+<div v-click flex mbs-5>
+  <Alert type="information" title="Bon à savoir" text="Cette rêgle s'applique à toutes les balises ! le choix de la balise ne doit pas être dterminé par son style. <br/>(par exemple : utiliser un lien pour ouvrir une modale parce qu'on veux que ça ressemble à un lien classique)"/>
+</div> 
+
+<SlideFooter/>
+
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>La balise &lt;title/&gt;</h1>
+
+<p>Cette balise un peu spéciale représente le titre global de la page et peux tout à fait reprendre le <kbd>h1</kbd>.</p>
+
+<p>Elle doit être unique et présente dans le <kbd>head</kbd> de votre page. c'est ce titre qui sera affiché dans l'onglet de votre navigateur, ou dans les résultats de recherches sur <b>Goggle</b> par exemple.</p>
+
+<div v-click flex mbs-5>
+  <Alert type="idea" title="Bon à savoir" text="Si on a plein d'onglets ouverts ouverts en même temps, il peut être pratique d'indiquer à quoi ils correspondent. <br/>La bonne pratique c'est de mettre également le nom du site"/>
+</div> 
+
+
+<div v-click>
+  <h2 class="!text-sm !text-light mbs-10 mbe-0">Exemple: </h2>
+  <p><kbd>&lt;title&gt;Decathlon | CHAUSSURES DE RUNNING FEMME KALENJI&lt;/title&gt;</kbd></p>
+</div>
+
+<SlideFooter/>
+
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Cas concrets</h1>
+
+<img src="/decathlon.jpg" alt="" class="absolute h-[88%] top-[5%] end-[10%]">
+
+<p v-click>Choisissez la balise la plus appropriée pour cette zone.</p>
+
+<Arrow v-after v-bind="{ color: '#f43f5e', x1:550, y1:40, x2:680, y2:40 }" />
+
+<div v-after grid grid-cols-4 mbs-10 mis-20 mie-100 gap-y-5>
+  <span><span v-mark="{ at:2, color: '#f43f5e', type: 'circle' }"><kbd>header</kbd></span></span>
+  <span><kbd>main</kbd></span>
+  <span><kbd>footer</kbd></span>
+  <span><kbd>section</kbd></span>
+  <span><kbd>aside</kbd></span>
+  <span><kbd>article</kbd></span>
+  <span><kbd>div</kbd></span>
+  <span><kbd>nav</kbd></span>
+  <span><kbd>a</kbd></span>
+  <span><kbd>button</kbd></span>
+  <span><kbd>span</kbd></span>
+  <span><kbd>p</kbd></span>
+  <span><kbd>strong</kbd></span>
+  <span><kbd>h1</kbd></span>
+  <span><kbd>h2</kbd></span>
+  <span><kbd>h3</kbd></span>
+  <span><kbd>h4</kbd></span>
+  <span><kbd>h5</kbd></span>
+  <span><kbd>h6</kbd></span>
+  <span><kbd>img</kbd></span>
+</div>
+
+<div v-click flex mbs-10>
+  <Alert type="information" title="Explication" text="Ici il s'agit bien de l'entête principale de la page. Pensez à ajouter le <kbd>role='banner'</kbd>"/>
+</div>
+
+<SlideFooter/>
+
+
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Cas concrets</h1>
+
+<img src="/decathlon.jpg" alt="" class="absolute h-[88%] top-[5%] end-[10%]">
+
+<p>Choisissez la balise la plus appropriée pour cette zone.</p>
+
+<Arrow v-bind="{ color: '#f43f5e', x1:750, y1:200, x2:855, y2:120 }" />
+
+<div grid grid-cols-4 mbs-10 mis-20 mie-100 gap-y-5>
+  <span><kbd>header</kbd></span>
+  <span><kbd>main</kbd></span>
+  <span><kbd>footer</kbd></span>
+  <span><kbd>section</kbd></span>
+  <span><kbd>aside</kbd></span>
+  <span><kbd>article</kbd></span>
+  <span><kbd>div</kbd></span>
+  <span><kbd>nav</kbd></span>
+  <span><span v-mark="{ at:1, color: '#f43f5e', type: 'circle' }"><kbd>a</kbd></span></span>
+  <span><kbd>button</kbd></span>
+  <span><kbd>span</kbd></span>
+  <span><kbd>p</kbd></span>
+  <span><kbd>strong</kbd></span>
+  <span><kbd>h1</kbd></span>
+  <span><kbd>h2</kbd></span>
+  <span><kbd>h3</kbd></span>
+  <span><kbd>h4</kbd></span>
+  <span><kbd>h5</kbd></span>
+  <span><kbd>h6</kbd></span>
+  <span><kbd>img</kbd></span>
+</div>
+
+<div v-click flex mbs-10>
+  <Alert type="information" title="Explication" text="Ici il s'agit d'une ancre vers une section qui se trouve plus bas dans la page. <br/>C'est donc bien un lien."/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Cas concrets</h1>
+
+<img src="/decathlon.jpg" alt="" class="absolute h-[88%] top-[5%] end-[10%]">
+
+<p>Choisissez la balise la plus appropriée pour cette zone.</p>
+
+<Arrow v-bind="{ color: '#f43f5e', x1:550, y1:120, x2:720, y2:120 }" />
+
+<div grid grid-cols-4 mbs-10 mis-20 mie-100 gap-y-5>
+  <span><kbd>header</kbd></span>
+  <span><kbd>main</kbd></span>
+  <span><kbd>footer</kbd></span>
+  <span><kbd>section</kbd></span>
+  <span><kbd>aside</kbd></span>
+  <span><kbd>article</kbd></span>
+  <span><kbd>div</kbd></span>
+  <span><kbd>nav</kbd></span>
+  <span><kbd>a</kbd></span>
+  <span><kbd>button</kbd></span>
+  <span><kbd>span</kbd></span>
+  <span><kbd>p</kbd></span>
+  <span><kbd>strong</kbd></span>
+  <span><kbd>h1</kbd></span>
+  <span><kbd>h2</kbd></span>
+  <span><kbd>h3</kbd></span>
+  <span><kbd>h4</kbd></span>
+  <span><kbd>h5</kbd></span>
+  <span><kbd>h6</kbd></span>
+  <span><span v-mark="{ at:1, color: '#f43f5e', type: 'circle' }"><kbd>img</kbd></span></span>
+</div>
+
+<div v-click flex mbs-10>
+  <Alert type="information" title="Explication" text="Pour afficher une image, privilégiez la balise <kbd>img</kbd> plutôt que le background image en CSS.<br/>Pensez à renseigner l'alternative textuelle de l'image si elle est porteuse de sens."/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Cas concrets</h1>
+
+<img src="/decathlon.jpg" alt="" class="absolute h-[88%] top-[5%] end-[10%]">
+
+<p>Choisissez la balise la plus appropriée pour cette zone.</p>
+
+<Arrow v-bind="{ color: '#f43f5e', x1:550, y1:80, x2:690, y2:50 }" />
+
+<div grid grid-cols-4 mbs-10 mis-20 mie-100 gap-y-5>
+  <span><kbd>header</kbd></span>
+  <span><kbd>main</kbd></span>
+  <span><kbd>footer</kbd></span>
+  <span><kbd>section</kbd></span>
+  <span><kbd>aside</kbd></span>
+  <span><kbd>article</kbd></span>
+  <span><kbd>div</kbd></span>
+  <span><span v-mark="{ at:1, color: '#f43f5e', type: 'circle' }"><kbd>nav</kbd></span></span>
+  <span><kbd>a</kbd></span>
+  <span><kbd>button</kbd></span>
+  <span><kbd>span</kbd></span>
+  <span><kbd>p</kbd></span>
+  <span><kbd>strong</kbd></span>
+  <span><kbd>h1</kbd></span>
+  <span><kbd>h2</kbd></span>
+  <span><kbd>h3</kbd></span>
+  <span><kbd>h4</kbd></span>
+  <span><kbd>h5</kbd></span>
+  <span><kbd>h6</kbd></span>
+  <span><kbd>img</kbd></span>
+</div>
+
+<div v-click flex mbs-10>
+  <Alert type="information" title="Explication" text="Ici il s'agit d'un fil d'arianne, qui est une liste de liens permettant de naviguer<br/> sur les pages du sites, comme le ferait un menu de navigation classique."/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Cas concrets</h1>
+
+<img src="/decathlon.jpg" alt="" class="absolute h-[88%] top-[5%] end-[10%]">
+
+<p>Choisissez la balise la plus appropriée pour cette zone.</p>
+
+<Arrow v-bind="{ color: '#f43f5e', x1:650, y1:70, x2:815, y2:80 }" />
+
+<div grid grid-cols-4 mbs-10 mis-20 mie-100 gap-y-5>
+  <span><kbd>header</kbd></span>
+  <span><kbd>main</kbd></span>
+  <span><kbd>footer</kbd></span>
+  <span><kbd>section</kbd></span>
+  <span><kbd>aside</kbd></span>
+  <span><kbd>article</kbd></span>
+  <span><kbd>div</kbd></span>
+  <span><kbd>nav</kbd></span>
+  <span><kbd>a</kbd></span>
+  <span><kbd>button</kbd></span>
+  <span><kbd>span</kbd></span>
+  <span><kbd>p</kbd></span>
+  <span><kbd>strong</kbd></span>
+  <span><span v-mark="{ at:1, color: '#f43f5e', type: 'circle' }"><kbd>h1</kbd></span></span>
+  <span><kbd>h2</kbd></span>
+  <span><kbd>h3</kbd></span>
+  <span><kbd>h4</kbd></span>
+  <span><kbd>h5</kbd></span>
+  <span><kbd>h6</kbd></span>
+  <span><kbd>img</kbd></span>
+</div>
+
+<div v-click flex mbs-10>
+  <Alert type="information" title="Explication" text="Ici il s'agit du nom du produit, il est donc pertinant d'utuliser la balise <kbd>h1</kbd><br/>pour en faire le titre principal de la page"/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Cas concrets</h1>
+
+<img src="/decathlon.jpg" alt="" class="absolute h-[88%] top-[5%] end-[10%]">
+
+<p>Choisissez la balise la plus appropriée pour cette zone.</p>
+
+<Arrow v-bind="{ color: '#f43f5e', x1:580, y1:400, x2:690, y2:460 }" />
+
+<div grid grid-cols-4 mbs-10 mis-20 mie-100 gap-y-5>
+  <span><kbd>header</kbd></span>
+  <span><kbd>main</kbd></span>
+  <span><kbd>footer</kbd></span>
+  <span><kbd>section</kbd></span>
+  <span><kbd>aside</kbd></span>
+  <span><span v-mark="{ at:1, color: '#f43f5e', type: 'circle' }"><kbd>article</kbd></span></span>
+  <span><kbd>div</kbd></span>
+  <span><kbd>nav</kbd></span>
+  <span><kbd>a</kbd></span>
+  <span><kbd>button</kbd></span>
+  <span><kbd>span</kbd></span>
+  <span><kbd>p</kbd></span>
+  <span><kbd>strong</kbd></span>
+  <span><kbd>h1</kbd></span>
+  <span><kbd>h2</kbd></span>
+  <span><kbd>h3</kbd></span>
+  <span><kbd>h4</kbd></span>
+  <span><kbd>h5</kbd></span>
+  <span><kbd>h6</kbd></span>
+  <span><kbd>img</kbd></span>
+</div>
+
+<div v-click flex mbs-10>
+  <Alert type="information" title="Explication" text="Ici il s'agit de carte représentant des produits similaire,<br/>chaque produit à le même template : une photo, un titre, des étoiles d'avis client, etc.."/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: image-left
+image: code.jpg
+transition: slide-up
+---
+
+<h1>Conclusion</h1>
+
+<p>Le choix des balises est très important pour garantir une page <b>lisible</b> et <b>compréhensible</b> par les utilisateurs, mais aussi par les outils de référencement et les lecteurs d'écran.</p>
+
+<p>Il existe uen balise pour tous les usages. Le choix d'utiliser une balise générique comme <kbd>&lt;div&gt;</kbd> doit se faire dans des cas bien précis, mais en aucun cas pour des éléments structurels.</p>
+
+
+<Alert type="idea" title="Bon à savoir" text="On peux ajouter de la précision avec les attributs **role** et **ARIA** pour indiquer aux lecteurs d'écrans dans quel but est utilisé une balise ajouter des informations." />
+
+
+<div @click="$slidev.nav.next" mbs-10 text-end text-primary cursor-pointer>
+  Suite de la formation <carbon-arrow-right />
+</div>
+
+<SlideFooter/>

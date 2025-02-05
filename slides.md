@@ -48,3 +48,9 @@ src: ./slides/programme.html
 title: Introduction
 src: ./slides/moi.html
 ---
+
+
+--- 
+title: La sémantique HTML
+src: ./slides/semantique.html
+---
