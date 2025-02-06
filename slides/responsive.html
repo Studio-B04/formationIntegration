@@ -1,0 +1,409 @@
+---
+layout: center
+transition: slide-up
+class: text-center
+---
+
+<h1 class="!text-6xl">2. Le Responsive Design</h1>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>C'est quoi le Responsive Design ?</h1>
+
+<p>Le <b>Responsive Design</b> consiste à adapter l'affichage d'une application web <b>en fonction de la taille de l'écran</b>.</p>
+
+<p>Auparavant, il était fréquent d'avoir un site différent pour le mobile et pour le desktop. Avec la multiplication des tailles écrans et des devices (TV connectée, montre connectée, tablette, etc.) on privilégie un code unique mais adaptatif.</p>
+
+<h2 v-click class="!text-lg text-light">Pourquoi est-ce important ?</h2>
+
+<ul mis-10>
+  <listItem label="✅ Expérience utilisateur optimale et similaire sur tous les appareils"/>
+  <listItem label="✅ Meilleur référencement SEO, un seul site à référencer <small>(de plus **Google** favorise les sites responsive)</small>"/>
+  <listItem label="✅ Un seul code HTML/CSS à maintenir"/>
+</ul>
+
+<h2 v-click class="!text-lg text-light">En revanche</h2>
+
+<ul mis-10>
+  <listItem label="❌ Un peu plus de complexité dans le développement"/>
+  <listItem label="❌ Un code CSS plus lourd"/>
+</ul>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Comment ça marche ?</h1>
+
+<p>Pour appliquer un style différent sur modile et desktop, on utilise les <b>"Media Queries"</b> en <b>CSS</b></p>
+
+<p>Les <b>Media Queries</b> s'écrivent avec le mot clé <kbd>@media</kbd>, exemple :</p>
+
+<div v-click mbs-5 flex gap-10>
+```css
+body {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+```
+
+<div>
+  <p>Ici, on dit que la taille de la police est de <b>14px</b> par défaut, mais que pour les tailles d'écran de plus de <b>768px</b>, on autra une taille de police de <b>16px</b></p>
+  
+  <Alert type="warning" title="Attention !" text="On parle de taille d'écran mais c'est une erreur, ce qui compte ici c'est la taille de la fenêtre du navigateur ! On parle de **viewport**."/>
+</div>
+</div>
+
+<div flex flex-col mbs-2 >
+<Alert type="danger" title="Important !" text="Pour que cela fonctionne il faut dire au navigateur de ne pas essayer d'adapter les pages à la taille d'écran automaiquement, ce qui est le comportement par défaut. Il faut lui forcer une largeur equivalente à la taille d'écran avec "/>
+```html {*}{lines:false}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les breakpoints</h1>
+
+<p>Dans l'exemple précédent, nous avons modifié le style à <b>768px</b>. Cette valeur est appelée un <b>breakpoint</b>.</p>
+<p>Les <b>breakpoints</b> sont définis par les UI/UX designers et peuvent varier d'un projet à l'autre. <br/>En général on défini 3 <b>breakpoints</b> correspondants au <b>mobile</b>, à la <b>tablette</b> et au <b>desktop</b>.</p>
+
+
+<table v-click>
+  <thead>
+    <tr>
+      <th><b>Type d'écran</b></th>
+      <th><b>Largeur en px</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Mobile</b></td>
+      <td>&lt; 768px</td>
+    </tr>
+    <tr>
+      <td><b>Talette</b></td>
+      <td>768px - 1024px</td>
+    </tr>
+    <tr>
+      <td><b>Desktop</b></td>
+      <td>&gt; 1024px</td>
+    </tr>
+  </tbody>
+</table>
+
+<div v-click mbs-5>
+  <Alert type="warning" title="Attention !" text="Comme on l'a vu précédement, ce qui compte ce n'est pas la taille de l'écran mais du **viewport**. Ce qui signifie que sur desktop si j'ai une fenêtre de moins de 1024px de large, c'est le style tablette qui sera utilisé." />
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Un exemple concret</h1>
+
+<div flex gap-10 items-start scale-100 origin-top-left>
+```html
+<section>
+  <article>
+    <h2>Article 1</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </article>
+
+  <article>
+    <h2>Article 1</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </article>
+  
+  <article>
+    <h2>Article 1</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+  </article>
+</section>
+```
+
+```css
+// MOBILE
+article {
+  display: inline-block;
+  width: 100%;
+}
+
+// TABLET
+@media (min-width: 768px) and (max-width: 1023px) {
+  article {
+    width: 50%;  
+  }
+}
+
+// DESKTOP
+@media (min-width: 1024px) {
+  article {
+    width: 33%;  
+  }
+}
+```
+</div>
+
+<Arrow v-bind="{ color: '#f43f5e', x1:800, y1:150, x2:755, y2:250 }" v-click/>
+
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Le type de média</h1>
+
+<p>Grâce aux <b>Media Queries</b> on peux définir un style différent en fonction du média utilisé :</p>
+
+<ul mbs-3 mis-10>
+  <ListItem label="<kbd>screen</kbd>. Concerne les écran, quelque soit le device."/>
+  <ListItem label="<kbd>print</kbd>. Ne s'applique que pour l'impression. On peut par exemple retirer les **background-color**."/>
+  <ListItem label="<kbd>all</kbd>. S'applique dans tous les cas, c'est la valeur par défaut."/>
+</ul>
+
+<div v-click mbs-10 flex gap-20 justify-between>
+```css
+body { background-color: black; }
+
+@media screen and (min-width: 768px) {
+  body { background-color: white; }
+}
+
+@media print {
+  body { background-color: transparent; }
+}
+```
+
+<div flex flex-col gap-2>
+  <p>Par défaut le body aura un background <b>noir</b></p>
+  <p>Sur les écrans de 768px et plus, il sera <b>gris</b></p>
+  <p>Lorsqu'on imprimera la page, il sera <b>transparent</b></p>
+</div>
+</div>
+
+<Arrow v-bind="{ color: '#f43f5e', x1:400, y1:290, x2:525, y2:295 }" v-after/>
+<Arrow v-bind="{ color: '#f43f5e', x1:410, y1:355, x2:525, y2:360 }" v-after/>
+<Arrow v-bind="{ color: '#f43f5e', x1:455, y1:435, x2:525, y2:435 }" v-after/>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Que dit la documentation officielle ?</h1>
+
+<div flex justify-between>
+  <div>
+    <p>Il existe de nombreuse autre rêgles qui peuvent s'appliquer comme : </p>
+    <ul mbs-3 mis-10>
+      <ListItem label="<kbd>@media (orientation: landscape|portrait) { ... }</kbd>."/>
+      <ListItem label="<kbd>@media monochrome { ... }</kbd>."/>
+      <ListItem label="<kbd>@media prefers-contrast { ... }</kbd>."/>
+      <ListItem label="<kbd>@media prefers-reduced-motion { ... }</kbd>."/>
+      <ListItem label="etc..."/>
+    </ul>
+  </div>
+
+  <div>
+    <p v-click>et d'autre opérateurs logiques : </p>
+    <ul mbs-3 mis-10>
+      <ListItem label="<kbd>not</kbd>"/>
+      <ListItem label="<kbd>only</kbd>"/>
+      <ListItem label="<kbd>,</kbd>"/>
+    </ul>
+  </div>
+</div>
+
+<p v-click>Voici un exemple de <b>Media Query</b> complexe :</p>
+
+<div v-after flex>
+```css {*}{lines:false}
+@media only screen and (min-width: 320px) and (max-width: 480px) not (orientation: portrait) { 
+  ...
+}
+```
+</div>
+
+<a v-click href="https://developer.mozilla.org/fr/docs/Web/CSS/@media" target="_blank">https://developer.mozilla.org/fr/docs/Web/CSS/@media</a>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Container Queries</h1>
+<h2 text-lighter class="!text-lg">Une révolution pour le Responsive Design.</h2>
+
+<p v-click>Les <b>Media Queries</b> traditionnelles reposent sur la taille de la fenêtre du navigateur <b>(viewport)</b>, ce qui pose un problème pour les composants réutilisables.</p>
+
+<div v-click flex gap-10 items-start >
+```html
+<main>
+  <section>
+    <article>...</article>
+    <article>...</article>
+    <article>...</article>
+  </section>
+
+  <aside>
+    <article>...</article>
+    <article>...</article>
+  </aside>
+</main>
+```
+
+```css
+main {
+  display: flex;
+}
+
+section {
+  width: 70%;
+}
+
+aside {
+  width: 30%;
+}
+```
+
+<div>
+  <p>Le probleme qui se pose ici, c'est que je veux utiliser le même composant <kbd>article</kbd>, à deux endroits de largeurs différentes.</p>
+  <p>Puisque la largeur globale de mon <b>viewport</b> ne change pas je ne peux pas utiliser les <b>Media Queries</b>.</p>
+  <p>C'est dans ce cas précis que les <b>"Container Queries"</b> interviennent.</p>
+</div>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Container Queries</h1>
+<h2 text-lighter class="!text-lg">Comment ça marche ?</h2>
+
+<p v-click>Tout d'abord, il faut déclarer le parent comme un conteneur. Pour cela il faut déclarer un <b>container-type</b> :</p>
+
+<div v-after flex gap-10 items-center>
+```css
+section, aside {
+  container-type: inline-size;
+}
+```
+<div text-sm>
+  <div>• La valeur <kbd>inline-size</kbd> indique que la taille s'applique sur l'axe inline (horizontal)</div>
+  <div>• La valeur <kbd>size</kbd> indique que la taille s'applique sur les deux axes (horizontal et vertical)</div>
+</div>
+</div>
+
+<p v-click>Ensuite on peux utiliser le mot clé <b>@container</b> comme on le ferait avec <b>@media</b> :</p>
+
+<div v-after flex gap-10 items-center>
+```css
+article {
+  flex-direction: column;
+}
+
+@container (min-width: 500px) {
+  article {
+    flex-direction: row;
+  } 
+}
+```
+
+<div text-sm>
+  <p>Ici les 500px ne font plus référence au <b>viewport</b> mais au premier parent de type <b>container</b>. un même composant peux donc être utilisé à différents endroits de la page et s'adapter à la taille dont il dispose.</p>
+  <a href="https://jsfiddle.net/StudioB04/c0k1qfyu/43/" target="_blank">Démonstration</a>
+    
+</div>
+</div>
+
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Container Queries</h1>
+
+<p>Il est également possible, et même recommandé de nommer un container, afin que le style de ses enfant ne s'applique qu'a lui.</p>
+
+<div v-click flex mbs-5 gap-10 items-center>
+```css
+section, aside {
+  container-type: inline-size;
+  container-name: myContainer;
+}
+
+@container myContainer (min-width: 500px) {
+  article {
+    flex-direction: row;
+  } 
+}
+```
+
+<div>
+  <p>Ici la regle ne s'applique que si <kbd>article</kbd> est dans le container <b>MyContainer</b>.</p>
+</div>
+</div>
+
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-left
+---
+
+<h1>Les Container Queries</h1>
+
+<p>Les <b>Container Queries</b> peuvent être compliqués à prendre en main mais sont particulièrement pratiques pour le <b>Responsive Design</b>.</p>
+
+<ul mbs-10 mis-10>
+  <ListItem label="✅ **Composants 100% réutilisables** indépendamment du contexte"/>
+  <ListItem label="✅ **Fini les hacks CSS ou JS** compliqués pour gérer des layouts flexibles"/>
+  <ListItem label="✅ **Meilleur contrôle** sur les éléments imbriqués"/>
+</ul>
+
+<div v-click mbs-10 flex>
+  <Alert type="idea" title="Compatibilité" text="Les **Container Queries** sont désormais largement supportées par **Chrome**, **Edge**, **Firefox** et **Safari**"/>
+</div>
+
+<div v-click mbs-3 flex>
+  <Alert type="danger" title="Attention" text="En fonction du projet sur lequel vous travaillez, vous pourriez être ammené à développer pour des navigateurs obsoletes comme **Internet Explorer** ou des navigateurs embarqués qui ne sont pas compatibles. <br/>Pensez à vérifier la compatibilité grâce au site [Can I Use](https://caniuse.com/)."/>
+</div>
+
+
+<SlideFooter/>

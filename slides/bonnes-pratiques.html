@@ -1,0 +1,502 @@
+---
+layout: center
+transition: slide-up
+class: text-center
+---
+
+<h1 class="!text-6xl">3. Les bonnes pratiques</h1>
+
+<SlideFooter/>
+
+---
+layout: image-right
+image: code.jpg
+transition: slide-up
+---
+
+<h1>Les bonnes pratiques en intégration</h1>
+
+<div mbs-15>
+  <p>L’intégration ne se résume pas uniquement à appliquer du CSS pour rendre fidèlement une maquette.</p>
+  <p>Il s’agit aussi d’assurer <b>maintenabilité</b>, <b>performance</b>, <b>accessibilité</b> et <b>compatibilité</b>.</p>
+  <p>Nous allons aborder quelques bonnes pratiques largement utilisées dans le développement côté <b>Front-End</b>.</p>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Organisation et structure</h1>
+<h2 mbs-5 text-light class="!text-xl">Utiliser une structure de fichiers claire</h2>
+
+<p>Vous serez amené à collaborer sur des projets sur lesquels plusieurs développeurs interviennent. Il est important d'organiser les fichiers selon une organisation définie au démarrage du projet.</p>
+
+<div v-click flex gap-10  mx-20>
+<div scale-80 origin-top-left>
+```{*}{lines:false}
+  /project
+  │── /assets
+  │    ├── /images
+  │    └── /fonts
+  │── /styles
+  │    ├── main.css
+  │    ├── components.css
+  │    └── responsive.css
+  │── /components
+  │    ├── /Header
+  │    ├── /Footer
+  │    └── /Sidebar
+  └── /pages
+        ├── home.html
+        ├── pdp.html
+        └── plp.html
+```
+</div>
+
+<div>
+  <p>Il n'existe pas vraiment de normes, vous pouvez organiser vos dossiers comme vous voulez.</p>
+  <p>Ce qui compte, c'est que ce soit clair et que les fichiers de même natures soient regroupés.</p>
+
+  <Alert type="idea" title="Convention" text="Par convention, les composants réutilisables dans les frameworks Javascript comme **React** ou **Svelte** s'écrivent avec une majuscule."/>
+</div>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Organisation et structure</h1>
+<h2 mbs-5 text-light class="!text-xl">Mobile first</h2>
+
+<p>
+  Aujourd'hui, <b>plus de 50% du traffic internet mondial</b> provient des appareils mobiles.
+  La plupart des gens privilegient le smartphone pour consulter des sites internet.
+</p>
+
+<p>
+  Sur un smartphone, même avec la 5G, les temps de chargement sont souvent plus longs que sur une connexion filaire avec un PC, et les performances sont aussi moins importante. 
+</p>
+
+<h3 class="!text-lg">Une conception progressive (Progressive Enhancement)</h3>
+
+<p>👉 On développe d’abord une version simple et efficace pour mobile, puis on l’enrichit pour les écrans plus grands.</p>
+
+<ul mbs-3 mis-10>
+  <ListItem label="📱 **Mobile** → Interface épurée, chargement rapide, navigation simplifiée."/>
+  <ListItem label="⬛ **Tablette** → Ajout d’éléments secondaires (effets, colonnes, animations)."/>
+  <ListItem label="🖥️ **Desktop** → Version complète avec plus de détails et de fonctionnalités, d'animations, etc."/>
+</ul>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Organisation et structure</h1>
+<h2 mbs-5 text-light class="!text-xl">Mobile first</h2>
+
+<div flex gap-20 mbs-10 items-center>
+
+<div>
+<strong mbe-3 block>❌ Approche "Desktop first"</strong>
+
+```css
+section {
+  display: flex;
+  flex-direction: row;
+} 
+
+@media screen and (max-width: 768px) {  
+  section {
+    flex-direction: column
+  }
+}
+```
+</div> 
+
+<div>
+<strong mbe-3 block>✅ Approche "Mobile first"</strong>
+
+```css
+section {
+  display: flex;
+  flex-direction: column;
+} 
+
+@media screen and (min-width: 768px) {  
+  section {
+    flex-direction: row
+  }
+}
+```
+</div>
+
+</div>
+
+<SlideFooter/>
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Organisation et structure</h1>
+<h2 mbs-5 text-light class="!text-xl">Adopter une convention de nommage pour les style</h2>
+
+<p>Il existe de nombreuses conventions de nommage pour les styles <b>CSS</b>. Une des plus utilisées et le <b>BEM</b>, pour <b>Block - Element - Modifier</b>.</p>
+<p>Cette syntaxe permet de comprendre clairement le fonctionnement d'un composant à la lecture du code <b>CSS</b> :</p>
+
+<div v-click flex mbs-5>
+```css
+.article { ... }                      /* Block */
+.article__button { ... }              /* Element (sous ensemble du Block)  */
+.article__button--disabled { ... }    /* Modifier (État d'un élément) */
+```
+</div>
+
+<div v-click mbs-5>En SCSS c'est encore plus pertinent :</div>
+<div v-after flex >
+```less
+.article { 
+  &__button {
+    &--disabled { ... }
+  }
+}
+```
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Performance et optimisation</h1>
+<h2 mbs-5 text-light class="!text-xl">Charger les ressources efficacement</h2>
+
+<p>On l'a vu lors du dernier cours, les pages Web sont constituées de nombreux éléments : des images, des polices de caractères, des feuilles de style CSS, des fichiers Js, etc. </p>
+<p>Chacune de ses ressources fait une requête <b>HTTP</b> au serveur et ralentis le chargement global de la page.</p>
+
+<p>Il est donc imporant de limiter au maximum la taille de ces fichiers et <u>l'ordre dans lequel ils sont appelés</u>.</p>
+
+<div v-click mbs-5 flex>
+  <Alert type="idea" title="Astuce" text="On va charger en priorité ce qui concerne l'apparence de la page (les police, le css et les images) et retarder le chargement de ce qui concerne l'interaction (le JS, les videos et les audios, etc.)"/>
+</div>
+
+<div v-click mbs-5 flex>
+  <Alert type="information" title="Important" text="On peux également charger plus tard les éléments qui apparaissent en bas de page (sous la ligne de flotaison) ou uniquement si elle apparaissent dans le viewport, c'est ce qu'on appelle le **lazy loading**."/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Performance et optimisation</h1>
+<h2 mbs-5 text-light class="!text-xl">Optimiser les images</h2>
+
+<p>En <b>Webperf</b>, le poids des images est très important. Il est inutile de charger une photo de 800px / 600px pour une photo de profil qui fera 50px max.</p>
+<p v-click>Il existe des outils qui permettent de redimensionner et optimiser des images (<b>PhotoShop</b>, <b>TinyPNG</b>, etc)</p>
+
+<p v-click>Le choix du format est aussi très important.</p>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Performance et optimisation</h1>
+<h2 mbs-5 text-light class="!text-xl">Le format GIF (Graphics Interchange Format)</h2>
+
+<div mbs-5 mis-5>
+  <strong v-click>Avantages</strong>
+  <ul mbs-3 mis-10>
+    <ListItem label="✅ **100% compatible** aves tous les navigateurs et plateformes"/>
+    <ListItem label="✅ **Compression sans perte** (mais limitée à 256 couleurs)."/>
+    <ListItem label="✅ Supporte **les animations**"/>
+  </ul>
+</div>
+
+<div mbs-10 mis-5>
+  <strong v-click>Inconvénients</strong>
+  <ul mbs-3 mis-10>
+    <ListItem label="❌ **Limité à 256 couleurs** (8 bits), ce qui entraîne une perte de qualité pour les images complexes."/>
+    <ListItem label="❌ **Poids élevé par rapport à la taille**. (matrice de pixel)"/>
+    <ListItem label="❌ **Format ancien et déprécié**"/>
+    <ListItem label="❌ Les animations **ne peuvent pas être désactivées !**"/>
+  </ul>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Performance et optimisation</h1>
+<h2 mbs-5 text-light class="!text-xl">Le format JPEG/JPG (Joint Photographic Experts Group)</h2>
+
+<div mbs-10 mis-5>
+  <strong v-click>Avantages</strong>
+  <ul mbs-3 mis-10>
+    <ListItem label="✅ **100% compatible** aves tous les navigateurs et plateformes"/>
+    <ListItem label="✅ **Bonne compression** pour les images complexes (photos, textures)"/>
+    <ListItem label="✅ **16 millions de couleurs** (24 bits)"/>
+  </ul>
+</div>
+
+<div mbs-10 mis-5>
+  <strong v-click>Inconvénients</strong>
+  <ul mbs-3 mis-10>
+    <ListItem label="❌ **Compression avec perte** (détérioration de la qualité à chaque enregistrement)."/>
+    <ListItem label="❌ Pas de **transparence**."/>
+    <ListItem label="❌ Moins efficace sur les **images avec des zones de couleur uniforme** (logos, icônes)."/>
+  </ul>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Performance et optimisation</h1>
+<h2 mbs-5 text-light class="!text-xl">Le format PNG (Portable Network Graphics)</h2>
+
+<div mbs-10 mis-5>
+  <strong v-click>Avantages</strong>
+  <ul mbs-3 mis-10>
+    <ListItem label="✅ **Prends en charge la transparence** (canal alpha)"/>
+    <ListItem label="✅ **Compression sans perte** (aucune dégradation de qualité)."/>
+    <ListItem label="✅ Idéal pour les images avec **peu de couleurs et des contours nets** (logos, icônes, illustrations)."/>
+  </ul>
+</div>
+
+<div mbs-10 mis-5>
+  <strong v-click>Inconvénients</strong>
+  <ul mbs-3 mis-10>
+    <ListItem label="❌ **Poids des fichiers plus élevé qu’un JPEG** à qualité équivalente."/>
+    <ListItem label="❌ **Moins performant pour les photos complexes** en terme de compression."/>
+  </ul>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Performance et optimisation</h1>
+<h2 mbs-5 text-light class="!text-xl">Le format WebP (Google Web Picture)</h2>
+
+<div mbs-10 mis-5>
+  <strong v-click>Avantages</strong>
+  <ul mbs-3 mis-10>
+    <ListItem label="✅ **Meilleure compression que JPEG et PNG** (-30% en moyenne)."/>
+    <ListItem label="✅ **Supporte la transparence** (comme PNG) et **les animations** (comme GIF)."/>
+    <ListItem label="✅ Mode **avec ou sans perte** selon les besoins."/>
+  </ul>
+</div>
+
+<div mbs-10 mis-5>
+  <strong v-click>Inconvénients</strong>
+  <ul mbs-3 mis-10>
+    <ListItem label="❌ **Compatibilité parfois limitée** (certaines anciennes versions de Safari)"/>
+  </ul>
+</div>
+
+<div v-click mx-auto mbs-10 flex>
+  <Alert type="idea" title="Bon à savoir" text="C'est le meilleur format à ce jour pour le Web !"/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Performance et optimisation</h1>
+<h2 mbs-5 text-light class="!text-xl">Le format AVIF (AV1 Image File Format)</h2>
+
+<div mbs-10 mis-5>
+  <strong v-click>Avantages</strong>
+  <ul mbs-3 mis-10>
+    <ListItem label="✅ **Compression encore meilleure** que WebP."/>
+    <ListItem label="✅ **Supporte la transparence** (comme PNG) et **les animations** (comme GIF)."/>
+    <ListItem label="✅ Meilleure gestion des **couleurs** et du **HDR**."/>
+  </ul>
+</div>
+
+<div mbs-10 mis-5>
+  <strong v-click>Inconvénients</strong>
+  <ul mbs-3 mis-10>
+    <ListItem label="❌ **Compatibilité très limitée**"/>
+  </ul>
+</div>
+
+<div v-click mx-auto mbs-5 flex>
+  <Alert type="idea" title="Bon à savoir" text="C'est le meilleur format pour de la photo, c'est le format par défaut des photos prise avec un **iPhone**."/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Performance et optimisation</h1>
+<h2 mbs-5 text-light class="!text-xl">Le format SVG (Scalable Vector Graphics)</h2>
+
+<p>
+  Le <b>SVG</b> n'est pas tout à fait un format d'image comme les autres, c'est un fichier au format XML (proche de l'HTML) qui peux donc être modofié en <b>CSS</b>.
+  Les images <b>SVG</b> sont vertorielles (comme sur illustrator par exemple), elle ne sont pas constituées de pixels mais sont le résultat d'opérations mathématiques.
+</p>
+
+<div mbs-0 mis-5>
+  <strong v-click>Avantages</strong>
+  <ul mbs-3 mis-10>
+    <ListItem label="✅ **Basé sur le XML**, donc modifiable facilement."/>
+    <ListItem label="✅ **Indépendant de la résolution d'écran** (idéal pour les logos et icônes)"/>
+    <ListItem label="✅ **Très léger** pour des illustration simples et du texte"/>
+    <ListItem label="✅ **Peut être animé** avec du **CSS**"/>
+  </ul>
+</div>
+
+<div mbs-0 mis-5>
+  <strong v-click>Inconvénients</strong>
+  <ul mbs-3 mis-10>
+    <ListItem label="❌ **Pas adapté aux photos ou images complexes**"/>
+    <ListItem label="❌ **Peux poser des problemes de sécurité** si il contient du JS malicieux."/>
+  </ul>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Performance et optimisation</h1>
+<h2 mbs-5 text-light class="!text-xl">En résumé</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><b>Usage</b></th>
+      <th><b>Formats adaptés</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Photos / Images complexes</td>
+      <td><kbd>WebP</kbd> <kbd>JPEG</kbd></td>
+    </tr>
+    <tr>
+      <td>Photos avec transparence</td>
+      <td><kbd>PNG</kbd></td>
+    </tr>
+    <tr>
+      <td>Logos, icones, illustrations</td>
+      <td><kbd>SVG</kbd> <kbd>PNG</kbd></td>
+    </tr>
+    <tr>
+      <td>Animations</td>
+      <td><kbd>WebP</kbd> <kbd>GIF</kbd> <kbd>SVG</kbd></td>
+    </tr>
+    <tr>
+      <td>Optimisation avancé / Futur du Web</td>
+      <td><kbd>WebP</kbd> <kbd>AVIF</kbd></td>
+    </tr>
+  </tbody>
+</table>
+
+<div v-click flex mbs-1>
+  <Alert type="warning" title="Attention" text="Il existe ne nombreux aurtes formats mais pas forcément compatibles pour le moment. Pensez à vérifier la compatibilité des formats avec les navigateurs de votre audience via le site [Can i Use](https://caniuse.com/)"/>
+</div>
+
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Performance et optimisation</h1>
+<h2 mbs-5 text-light class="!text-xl">Minifier les fichiers</h2>
+
+<p>
+  Lors du développement, on peux etre ammené à écrire des commentaires dans le code, ou à choisir des noms de variable clairs mais très longs.
+  Le navigateur, lui, n'a pas besoin de ces commentaires et peux tout à fait utiliser des nom de variables très courts (une lettre)
+</p>
+
+<p v-click>On peux donc <b>minifier</b> le code. C'est à dire le rendre le plus léger possible sans que le sens en soit changer. Exemple : </p>
+
+<div v-click flex gap-10 items-center>
+
+<div>
+```js
+const userName = "John";
+function sayHello(name) {
+  // Will return a message
+  return "Hello " + name + "!";
+}
+```
+</div>
+
+<div>
+<strong>Après :</strong>
+```js
+const a="John";function s(n){return`Hello ${n} !`}
+```
+</div>
+
+</div>
+
+<div flex v-click mbs-3>
+  <Alert type="idea" title="rassuez-vous !" text="Cette opération ne se fait pas à la main ! Il existe des outils de minification qui modifient le code au moment du build." />
+</div>
+
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-left
+---
+
+<h1>Performance et optimisation</h1>
+<h2 mbs-5 text-light class="!text-xl">Concaténer les fichiers</h2>
+
+<p>
+  On l'a vu lors du chapitre sur le <b>protocole HTTP</b>, les pages font énormément d'appels au serveur pour récupérer des fichiers.
+  Il est beacoup plus performant de demander au serveur <b>un fichier de 1Mo</b> que <b>100 fichiers de 10Ko</b>.
+</p>
+
+<p>
+  On conseille donc de rassembler tous les fichiers de même nature au sein d'un fichier unique. (Un fichier JS, un fichier CSS, un sprite SVG, etc.)
+  On appelle ça un <b>Bundle</b>.
+  Cette opération se fait automatiquement grâce à des outils comme <b>Gulp</b>, <b>Webpack</b>, <b>Rollup</b>, etc.
+</p>
+
+<img src="/bundle.png" alt="" class="block w-[550px] mx-auto">
+ 
+<SlideFooter/>

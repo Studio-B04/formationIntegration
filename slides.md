@@ -54,3 +54,21 @@ src: ./slides/moi.html
 title: La sémantique HTML
 src: ./slides/semantique.html
 ---
+
+
+--- 
+title: La sémantique HTML
+src: ./slides/responsive.html
+---
+
+
+--- 
+title: La sémantique HTML
+src: ./slides/bonnes-pratiques.html
+---
+
+
+--- 
+title: La sémantique HTML
+src: ./slides/design-patterns.html
+---
