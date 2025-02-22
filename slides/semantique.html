@@ -21,7 +21,9 @@ transition: slide-up
 
 <p v-click>Concrètement cela signifie que l'utilisation d'une balise peux modifier la compréhension d'un page Web et donc pénaliser le <b>SEO</b> ou l'<b>accessibilité</b></p>
 
-<div v-click flex mbs-20>
+<p v-click>Par exemple, une image présentée dans une balise <kbd>&lt;img/&gt;</kbd> sera bien interprétée comme telle par les lecteurs décran et les moteurs de recherche. En revanche une <kbd>&lt;div/&gt;</kbd> avec un <code>background-image</code> en CSS sera ignorée !</p>
+
+<div v-click flex mbs-10>
   <Alert type="idea" title="Petit défi" text="Il existe plus de [100 balises différentes](https://jaetheme.com/tutoriels-ui/liste-des-balises-html5/) en HTLM5, chacune a un rôle bien précis. <br/>Combien pouvez vous en citer ? Jouons à un [petit jeu](https://www.sporcle.com/games/drywall/html_elements) ! "/>
 </div>
 
@@ -45,7 +47,7 @@ transition: slide-up
 <ul mis-10>
   <ListItem label="🔎 **S.E.O** : améliore le référencement naturel des pages web"/>
 </ul>
-<p v-after mis-10>Les moteurs de recherche comme <b>Goggle</b> ou <b>Bing</b> ne voient pas les pages mais interprètent le code <b>HTML</b>. Une page boien construite sera donc mieux référencée.</p>
+<p v-after mis-10>Les moteurs de recherche comme <b>Goggle</b> ou <b>Bing</b> ne voient pas les pages mais interprètent le code <b>HTML</b>. Une page bien construite sera donc mieux référencée.</p>
 
 
 
@@ -85,7 +87,7 @@ transition: slide-up
 <p>
   Il existe une balise appropriée pour chaque usage !
   <br/>
-  <b>✅ Solution</b> : Les bonnes balises sont utilisées, on comprend <br/>mieux comment est structurée la page.
+  <b>✅ Solution</b> : Les bonnes balises sont utilisées, on comprend mieux comment est structurée la page.
 </p>
 ```html
 <header id="header"></header>
@@ -135,7 +137,7 @@ transition: slide-up
     </tr>
     <tr v-click>
       <td><kbd>&lt;nav&gt;</kbd></td>
-      <td>Menu de navigation (doit contenir une liste de lien <kbd>&lt;ul&gt;</kbd> => <kbd>&lt;li&gt;</kbd> => <kbd>&lt;a&gt;</kbd> )</td>
+      <td>Menu de navigation (doit contenir une liste de liens : <kbd>&lt;ul&gt;</kbd> => <kbd>&lt;li&gt;</kbd> => <kbd>&lt;a&gt;</kbd> )</td>
     </tr>
     <tr v-click>
       <td><kbd>&lt;aside&gt;</kbd></td>
@@ -147,11 +149,11 @@ transition: slide-up
     </tr>
     <tr v-click>
       <td><kbd>&lt;a&gt;</kbd></td>
-      <td>Lien qui déclenche une redirection ou une ancre dans la page.</td>
+      <td>Lien (déclenche une redirection ou une ancre dans la page)</td>
     </tr>
     <tr v-click>
       <td><kbd>&lt;button&gt;</kbd></td>
-      <td>Boutton qui déclenche une action (validation de formulaire, ajout au panier, etc.)</td>
+      <td>Boutton (déclenche une action : validation de formulaire, ajout au panier, etc.)</td>
     </tr>
   </tbody>
 </table>
@@ -225,7 +227,9 @@ transition: slide-up
 
 <p v-click>Choisissez la balise la plus appropriée pour cette zone.</p>
 
+<Box x="685" y="20" w="200" h="35"/>
 <Arrow v-after v-bind="{ color: '#f43f5e', x1:550, y1:40, x2:680, y2:40 }" />
+
 
 <div v-after grid grid-cols-4 mbs-10 mis-20 mie-100 gap-y-5>
   <span><span v-mark="{ at:2, color: '#f43f5e', type: 'circle' }"><kbd>header</kbd></span></span>
@@ -269,7 +273,8 @@ transition: slide-up
 
 <p>Choisissez la balise la plus appropriée pour cette zone.</p>
 
-<Arrow v-bind="{ color: '#f43f5e', x1:750, y1:200, x2:855, y2:120 }" />
+<Box x="840" y="108" w="40" h="15"/>
+<Arrow v-bind="{ color: '#f43f5e', x1:650, y1:160, x2:835, y2:115 }" />
 
 <div grid grid-cols-4 mbs-10 mis-20 mie-100 gap-y-5>
   <span><kbd>header</kbd></span>
@@ -311,7 +316,8 @@ transition: slide-up
 
 <p>Choisissez la balise la plus appropriée pour cette zone.</p>
 
-<Arrow v-bind="{ color: '#f43f5e', x1:550, y1:120, x2:720, y2:120 }" />
+<Box x="690" y="54" w="120" h="122"/>
+<Arrow v-bind="{ color: '#f43f5e', x1:550, y1:170, x2:685, y2:110 }" />
 
 <div grid grid-cols-4 mbs-10 mis-20 mie-100 gap-y-5>
   <span><kbd>header</kbd></span>
@@ -353,7 +359,8 @@ transition: slide-up
 
 <p>Choisissez la balise la plus appropriée pour cette zone.</p>
 
-<Arrow v-bind="{ color: '#f43f5e', x1:550, y1:80, x2:690, y2:50 }" />
+<Box x="690" y="40" w="100" h="18"/>
+<Arrow v-bind="{ color: '#f43f5e', x1:550, y1:80, x2:685, y2:50 }" />
 
 <div grid grid-cols-4 mbs-10 mis-20 mie-100 gap-y-5>
   <span><kbd>header</kbd></span>
@@ -395,7 +402,8 @@ transition: slide-up
 
 <p>Choisissez la balise la plus appropriée pour cette zone.</p>
 
-<Arrow v-bind="{ color: '#f43f5e', x1:650, y1:70, x2:815, y2:80 }" />
+<Box x="815" y="58" w="65" h="42"/>
+<Arrow v-bind="{ color: '#f43f5e', x1:650, y1:100, x2:810, y2:80 }" />
 
 <div grid grid-cols-4 mbs-10 mis-20 mie-100 gap-y-5>
   <span><kbd>header</kbd></span>
@@ -421,7 +429,7 @@ transition: slide-up
 </div>
 
 <div v-click flex mbs-10>
-  <Alert type="information" title="Explication" text="Ici il s'agit du nom du produit, il est donc pertinant d'utuliser la balise <kbd>h1</kbd><br/>pour en faire le titre principal de la page"/>
+  <Alert type="information" title="Explication" text="Ici il s'agit du nom du produit, il est donc pertinant d'utiliser la balise <kbd>h1</kbd><br/>pour en faire le titre principal de la page"/>
 </div>
 
 <SlideFooter/>
@@ -437,7 +445,8 @@ transition: slide-up
 
 <p>Choisissez la balise la plus appropriée pour cette zone.</p>
 
-<Arrow v-bind="{ color: '#f43f5e', x1:580, y1:400, x2:690, y2:460 }" />
+<Box x="685" y="430" w="70" h="85"/>
+<Arrow v-bind="{ color: '#f43f5e', x1:550, y1:420, x2:680, y2:460 }" />
 
 <div grid grid-cols-4 mbs-10 mis-20 mie-100 gap-y-5>
   <span><kbd>header</kbd></span>
@@ -476,9 +485,9 @@ transition: slide-left
 
 <h1>Conclusion</h1>
 
-<p>Le choix des balises est très important pour garantir une page <b>lisible</b> et <b>compréhensible</b> par les utilisateurs, mais aussi par les outils de référencement et les lecteurs d'écran.</p>
+<p>Le choix des balises est très important pour garantir une page <b>lisible</b> et <b>compréhensible</b> par les utilisateurs, mais aussi par les <u>outils de référencement</u> et les <u>lecteurs d'écran</u>.</p>
 
-<p>Il existe uen balise pour tous les usages. Le choix d'utiliser une balise générique comme <kbd>&lt;div&gt;</kbd> doit se faire dans des cas bien précis, mais en aucun cas pour des éléments structurels.</p>
+<p>Il existe une balise pour chaque usage. Le choix d'utiliser une balise générique comme <kbd>&lt;div&gt;</kbd> doit se faire dans des cas bien précis, mais en aucun cas pour des éléments structurels.</p>
 
 
 <Alert type="idea" title="Bon à savoir" text="On peux ajouter de la précision avec les attributs **role** et **ARIA** pour indiquer aux lecteurs d'écrans dans quel but est utilisé une balise ajouter des informations." />

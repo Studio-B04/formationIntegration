@@ -17,7 +17,7 @@ transition: slide-up
 <h1>Les bonnes pratiques en intégration</h1>
 
 <div mbs-15>
-  <p>L’intégration ne se résume pas uniquement à appliquer du CSS pour rendre fidèlement une maquette.</p>
+  <p>L’intégration ne se résume pas uniquement à appliquer du CSS pour reproduire fidèlement une maquette.</p>
   <p>Il s’agit aussi d’assurer <b>maintenabilité</b>, <b>performance</b>, <b>accessibilité</b> et <b>compatibilité</b>.</p>
   <p>Nous allons aborder quelques bonnes pratiques largement utilisées dans le développement côté <b>Front-End</b>.</p>
 </div>
@@ -79,13 +79,13 @@ transition: slide-up
   La plupart des gens privilegient le smartphone pour consulter des sites internet.
 </p>
 
-<p>
+<p v-click>
   Sur un smartphone, même avec la 5G, les temps de chargement sont souvent plus longs que sur une connexion filaire avec un PC, et les performances sont aussi moins importante. 
 </p>
 
-<h3 class="!text-lg">Une conception progressive (Progressive Enhancement)</h3>
+<h3 v-click class="!text-lg">Une conception progressive (Progressive Enhancement)</h3>
 
-<p>👉 On développe d’abord une version simple et efficace pour mobile, puis on l’enrichit pour les écrans plus grands.</p>
+<p v-after>👉 On développe d’abord une version simple et efficace pour mobile, puis on l’enrichit pour les écrans plus grands.</p>
 
 <ul mbs-3 mis-10>
   <ListItem label="📱 **Mobile** → Interface épurée, chargement rapide, navigation simplifiée."/>
@@ -122,7 +122,7 @@ section {
 ```
 </div> 
 
-<div>
+<div v-click>
 <strong mbe-3 block>✅ Approche "Mobile first"</strong>
 
 ```css
@@ -148,10 +148,10 @@ transition: slide-up
 ---
 
 <h1>Organisation et structure</h1>
-<h2 mbs-5 text-light class="!text-xl">Adopter une convention de nommage pour les style</h2>
+<h2 mbs-5 text-light class="!text-xl">Adopter une convention de nommage pour les styles</h2>
 
-<p>Il existe de nombreuses conventions de nommage pour les styles <b>CSS</b>. Une des plus utilisées et le <b>BEM</b>, pour <b>Block - Element - Modifier</b>.</p>
-<p>Cette syntaxe permet de comprendre clairement le fonctionnement d'un composant à la lecture du code <b>CSS</b> :</p>
+<p v-click>Il existe de nombreuses conventions de nommage pour les styles <b>CSS</b>. Une des plus utilisées et le <b>BEM</b>, pour <b>Block - Element - Modifier</b>.</p>
+<p v-after>Cette syntaxe permet de comprendre clairement le fonctionnement d'un composant à la lecture du code <b>CSS</b> :</p>
 
 <div v-click flex mbs-5>
 ```css
@@ -162,7 +162,7 @@ transition: slide-up
 </div>
 
 <div v-click mbs-5>En SCSS c'est encore plus pertinent :</div>
-<div v-after flex >
+<div v-after flex items-center gap-50 >
 ```less
 .article { 
   &__button {
@@ -170,6 +170,8 @@ transition: slide-up
   }
 }
 ```
+
+<a href="https://getbem.com/" target="_blank">La documentation de BEM</a>
 </div>
 
 <SlideFooter/>
@@ -180,12 +182,10 @@ transition: slide-up
 ---
 
 <h1>Performance et optimisation</h1>
-<h2 mbs-5 text-light class="!text-xl">Charger les ressources efficacement</h2>
+<h2 mbs-5 text-light class="!text-xl">Charger les ressources efficacement.</h2>
 
-<p>On l'a vu lors du dernier cours, les pages Web sont constituées de nombreux éléments : des images, des polices de caractères, des feuilles de style CSS, des fichiers Js, etc. </p>
-<p>Chacune de ses ressources fait une requête <b>HTTP</b> au serveur et ralentis le chargement global de la page.</p>
-
-<p>Il est donc imporant de limiter au maximum la taille de ces fichiers et <u>l'ordre dans lequel ils sont appelés</u>.</p>
+<p v-click>On l'a vu lors du dernier cours, les pages Web sont constituées de nombreux éléments : des images, des polices de caractères, des feuilles de style CSS, des fichiers Js, etc. </p>
+<p v-after>Chacune de ses ressources fait une requête <b>HTTP</b> au serveur et ralentis le chargement global de la page. Il est donc imporant de limiter au maximum la taille de ces fichiers et <u>l'ordre dans lequel ils sont appelés</u>.</p>
 
 <div v-click mbs-5 flex>
   <Alert type="idea" title="Astuce" text="On va charger en priorité ce qui concerne l'apparence de la page (les police, le css et les images) et retarder le chargement de ce qui concerne l'interaction (le JS, les videos et les audios, etc.)"/>
@@ -203,9 +203,9 @@ transition: slide-up
 ---
 
 <h1>Performance et optimisation</h1>
-<h2 mbs-5 text-light class="!text-xl">Optimiser les images</h2>
+<h2 mbs-5 text-light class="!text-xl">Optimiser les images.</h2>
 
-<p>En <b>Webperf</b>, le poids des images est très important. Il est inutile de charger une photo de 800px / 600px pour une photo de profil qui fera 50px max.</p>
+<p v-click>En <b>Webperf</b>, le poids des images est très important. Il est inutile de charger une image de 800px par 600px pour une photo de profil qui fera 50px max.</p>
 <p v-click>Il existe des outils qui permettent de redimensionner et optimiser des images (<b>PhotoShop</b>, <b>TinyPNG</b>, etc)</p>
 
 <p v-click>Le choix du format est aussi très important.</p>
@@ -235,8 +235,27 @@ transition: slide-up
     <ListItem label="❌ **Limité à 256 couleurs** (8 bits), ce qui entraîne une perte de qualité pour les images complexes."/>
     <ListItem label="❌ **Poids élevé par rapport à la taille**. (matrice de pixel)"/>
     <ListItem label="❌ **Format ancien et déprécié**"/>
-    <ListItem label="❌ Les animations **ne peuvent pas être désactivées !**"/>
+    <ListItem label="❌ Les animations **ne peuvent pas être désactivées !** (Obligatoire pour l'accessibilité)"/>
   </ul>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<div flex items-start gap-10>
+  <img src="/joconde/joconde.png" alt="" width="450px">
+  <div flex flex-col gap-4>
+    <div style="background-image: url('/joconde/joconde.gif'); background-size: 600% auto; background-position: 30% 45%; width:350px; aspect-ratio: 1; "></div>
+    <ul>
+      <li>Format: <strong>GIF</strong></li>
+      <li>Dimensions : <strong>228x228px</strong></li>
+      <li>Poids : <strong>37 Ko</strong></li>
+    </ul>
+  </div>
 </div>
 
 <SlideFooter/>
@@ -274,6 +293,25 @@ layout: default
 transition: slide-up
 ---
 
+<div flex items-start gap-10>
+  <img src="/joconde/joconde.png" alt="" width="450px">
+  <div flex flex-col gap-4>
+    <div style="background-image: url('/joconde/joconde.jpg'); background-size: 600% auto; background-position: 30% 45%; width:350px; aspect-ratio: 1; "></div>
+    <ul>
+      <li>Format: <strong>JPG</strong></li>
+      <li>Dimensions : <strong>228x228px</strong></li>
+      <li>Poids : <strong>4 Ko</strong></li>
+    </ul>
+  </div>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
 <h1>Performance et optimisation</h1>
 <h2 mbs-5 text-light class="!text-xl">Le format PNG (Portable Network Graphics)</h2>
 
@@ -292,6 +330,25 @@ transition: slide-up
     <ListItem label="❌ **Poids des fichiers plus élevé qu’un JPEG** à qualité équivalente."/>
     <ListItem label="❌ **Moins performant pour les photos complexes** en terme de compression."/>
   </ul>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<div flex items-start gap-10>
+  <img src="/joconde/joconde.png" alt="" width="450px">
+  <div flex flex-col gap-4>
+    <div style="background-image: url('/joconde/joconde.png'); background-size: 600% auto; background-position: 30% 45%; width:350px; aspect-ratio: 1; "></div>
+    <ul>
+      <li>Format: <strong>PNG</strong></li>
+      <li>Dimensions : <strong>228x228px</strong></li>
+      <li>Poids : <strong>90 Ko</strong></li>
+    </ul>
+  </div>
 </div>
 
 <SlideFooter/>
@@ -331,6 +388,25 @@ layout: default
 transition: slide-up
 ---
 
+<div flex items-start gap-10>
+  <img src="/joconde/joconde.png" alt="" width="450px">
+  <div flex flex-col gap-4>
+    <div style="background-image: url('/joconde/joconde.webp'); background-size: 600% auto; background-position: 30% 45%; width:350px; aspect-ratio: 1; "></div>
+    <ul>
+      <li>Format: <strong>WebP</strong></li>
+      <li>Dimensions : <strong>228x228px</strong></li>
+      <li>Poids : <strong>68 Ko</strong></li>
+    </ul>
+  </div>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
 <h1>Performance et optimisation</h1>
 <h2 mbs-5 text-light class="!text-xl">Le format AVIF (AV1 Image File Format)</h2>
 
@@ -352,6 +428,25 @@ transition: slide-up
 
 <div v-click mx-auto mbs-5 flex>
   <Alert type="idea" title="Bon à savoir" text="C'est le meilleur format pour de la photo, c'est le format par défaut des photos prise avec un **iPhone**."/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<div flex items-start gap-10>
+  <img src="/joconde/joconde.png" alt="" width="450px">
+  <div flex flex-col gap-4>
+    <div style="background-image: url('/joconde/joconde.avif'); background-size: 600% auto; background-position: 30% 45%; width:350px; aspect-ratio: 1; "></div>
+    <ul>
+      <li>Format: <strong>AVIF</strong></li>
+      <li>Dimensions : <strong>228x228px</strong></li>
+      <li>Poids : <strong>9 Ko</strong></li>
+    </ul>
+  </div>
 </div>
 
 <SlideFooter/>
@@ -385,6 +480,39 @@ transition: slide-up
     <ListItem label="❌ **Pas adapté aux photos ou images complexes**"/>
     <ListItem label="❌ **Peux poser des problemes de sécurité** si il contient du JS malicieux."/>
   </ul>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<div flex items-start gap-10>
+  <img src="/logos/studiob04.svg" alt="" width="450px">
+  <div flex flex-col gap-4>
+```xml
+<svg 
+  viewBox="0 0 1000 1000"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect 
+    fill="#f43f5e"
+    width="1000"
+    height="1000"
+  />
+  <path 
+    fill="#ffffff"
+    d="M1040,465.2c-2.5-32.9-6.9-71.2..."/>
+</svg>
+```
+    <ul>
+      <li>Format: <strong>SVG</strong></li>
+      <li>Dimensions : <strong>???</strong></li>
+      <li>Poids : <strong>1 Ko</strong></li>
+    </ul>
+  </div>
 </div>
 
 <SlideFooter/>
@@ -429,7 +557,7 @@ transition: slide-up
 </table>
 
 <div v-click flex mbs-1>
-  <Alert type="warning" title="Attention" text="Il existe ne nombreux aurtes formats mais pas forcément compatibles pour le moment. Pensez à vérifier la compatibilité des formats avec les navigateurs de votre audience via le site [Can i Use](https://caniuse.com/)"/>
+  <Alert type="warning" title="Attention" text="Il existe ne nombreux autres formats mais pas forcément compatibles pour le moment. Pensez à vérifier la compatibilité des formats avec les navigateurs de votre audience via le site [Can i Use](https://caniuse.com/)"/>
 </div>
 
 
@@ -441,14 +569,14 @@ transition: slide-up
 ---
 
 <h1>Performance et optimisation</h1>
-<h2 mbs-5 text-light class="!text-xl">Minifier les fichiers</h2>
+<h2 mbs-5 text-light class="!text-xl">Minifier les fichiers.</h2>
 
-<p>
-  Lors du développement, on peux etre ammené à écrire des commentaires dans le code, ou à choisir des noms de variable clairs mais très longs.
+<p v-click>
+  Lors du développement, on peut etre ammené à écrire des commentaires dans le code, ou à choisir des noms de variable clairs mais très longs.
   Le navigateur, lui, n'a pas besoin de ces commentaires et peux tout à fait utiliser des nom de variables très courts (une lettre)
 </p>
 
-<p v-click>On peux donc <b>minifier</b> le code. C'est à dire le rendre le plus léger possible sans que le sens en soit changer. Exemple : </p>
+<p v-click>On peux donc <b>minifier</b> le code. C'est à dire le rendre le plus léger possible sans que le sens en soit changé. Exemple : </p>
 
 <div v-click flex gap-10 items-center>
 
@@ -463,7 +591,7 @@ function sayHello(name) {
 </div>
 
 <div>
-<strong>Après :</strong>
+<strong>Après la minification :</strong>
 ```js
 const a="John";function s(n){return`Hello ${n} !`}
 ```
@@ -484,19 +612,19 @@ transition: slide-left
 ---
 
 <h1>Performance et optimisation</h1>
-<h2 mbs-5 text-light class="!text-xl">Concaténer les fichiers</h2>
+<h2 mbs-5 text-light class="!text-xl">Concaténer les fichiers.</h2>
 
-<p>
+<p v-click>
   On l'a vu lors du chapitre sur le <b>protocole HTTP</b>, les pages font énormément d'appels au serveur pour récupérer des fichiers.
   Il est beacoup plus performant de demander au serveur <b>un fichier de 1Mo</b> que <b>100 fichiers de 10Ko</b>.
 </p>
 
-<p>
+<p v-click>
   On conseille donc de rassembler tous les fichiers de même nature au sein d'un fichier unique. (Un fichier JS, un fichier CSS, un sprite SVG, etc.)
   On appelle ça un <b>Bundle</b>.
   Cette opération se fait automatiquement grâce à des outils comme <b>Gulp</b>, <b>Webpack</b>, <b>Rollup</b>, etc.
 </p>
 
-<img src="/bundle.png" alt="" class="block w-[550px] mx-auto">
+<img v-after src="/bundle.png" alt="" class="block w-[550px] mx-auto">
  
 <SlideFooter/>

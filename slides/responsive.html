@@ -15,11 +15,11 @@ transition: slide-up
 
 <h1>C'est quoi le Responsive Design ?</h1>
 
-<p>Le <b>Responsive Design</b> consiste à adapter l'affichage d'une application web <b>en fonction de la taille de l'écran</b>.</p>
+<p>Le <b>Responsive Design</b> consiste à adapter l'affichage d'une application web <b>en fonction de la taille de l'écran</b> sur lequel elle sera affichée.</p>
 
 <p>Auparavant, il était fréquent d'avoir un site différent pour le mobile et pour le desktop. Avec la multiplication des tailles écrans et des devices (TV connectée, montre connectée, tablette, etc.) on privilégie un code unique mais adaptatif.</p>
 
-<h2 v-click class="!text-lg text-light">Pourquoi est-ce important ?</h2>
+<h2 v-click class="!text-lg text-light !-mbs-1">Pourquoi est-ce important ?</h2>
 
 <ul mis-10>
   <listItem label="✅ Expérience utilisateur optimale et similaire sur tous les appareils"/>
@@ -27,7 +27,7 @@ transition: slide-up
   <listItem label="✅ Un seul code HTML/CSS à maintenir"/>
 </ul>
 
-<h2 v-click class="!text-lg text-light">En revanche</h2>
+<h2 v-click class="!text-lg text-light -mbs-1">En revanche</h2>
 
 <ul mis-10>
   <listItem label="❌ Un peu plus de complexité dans le développement"/>
@@ -43,7 +43,7 @@ transition: slide-up
 
 <h1>Comment ça marche ?</h1>
 
-<p>Pour appliquer un style différent sur modile et desktop, on utilise les <b>"Media Queries"</b> en <b>CSS</b></p>
+<p>Pour appliquer un style différent sur mobile et desktop, on utilise les <b>"Media Queries"</b> en <b>CSS</b></p>
 
 <p>Les <b>Media Queries</b> s'écrivent avec le mot clé <kbd>@media</kbd>, exemple :</p>
 
@@ -67,8 +67,8 @@ body {
 </div>
 </div>
 
-<div flex flex-col mbs-2 >
-<Alert type="danger" title="Important !" text="Pour que cela fonctionne il faut dire au navigateur de ne pas essayer d'adapter les pages à la taille d'écran automaiquement, ce qui est le comportement par défaut. Il faut lui forcer une largeur equivalente à la taille d'écran avec "/>
+<div v-click flex flex-col mbs-2>
+<Alert type="danger" title="Important !" text="Pour que cela fonctionne il faut dire au navigateur de ne pas essayer d'adapter les pages à la taille d'écran automatiquement, ce qui est le comportement par défaut. Il faut lui forcer une largeur equivalente à la taille d'écran avec :"/>
 ```html {*}{lines:false}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
@@ -83,7 +83,7 @@ transition: slide-up
 
 <h1>Les breakpoints</h1>
 
-<p>Dans l'exemple précédent, nous avons modifié le style à <b>768px</b>. Cette valeur est appelée un <b>breakpoint</b>.</p>
+<p>Dans l'exemple précédent, nous avons modifié le style à <b>768px</b>. Cette valeur est appelée un <b><u>breakpoint</u></b>.</p>
 <p>Les <b>breakpoints</b> sont définis par les UI/UX designers et peuvent varier d'un projet à l'autre. <br/>En général on défini 3 <b>breakpoints</b> correspondants au <b>mobile</b>, à la <b>tablette</b> et au <b>desktop</b>.</p>
 
 
@@ -181,9 +181,9 @@ transition: slide-up
 <p>Grâce aux <b>Media Queries</b> on peux définir un style différent en fonction du média utilisé :</p>
 
 <ul mbs-3 mis-10>
-  <ListItem label="<kbd>screen</kbd>. Concerne les écran, quelque soit le device."/>
-  <ListItem label="<kbd>print</kbd>. Ne s'applique que pour l'impression. On peut par exemple retirer les **background-color**."/>
-  <ListItem label="<kbd>all</kbd>. S'applique dans tous les cas, c'est la valeur par défaut."/>
+  <ListItem label="<kbd>screen</kbd> : Concerne les écran, quelque soit le device."/>
+  <ListItem label="<kbd>print</kbd> : Ne s'applique que pour l'impression. On peut par exemple retirer les **background-color**."/>
+  <ListItem label="<kbd>all</kbd> : S'applique dans tous les cas, c'est la valeur par défaut."/>
 </ul>
 
 <div v-click mbs-10 flex gap-20 justify-between>
@@ -223,10 +223,10 @@ transition: slide-up
   <div>
     <p>Il existe de nombreuse autre rêgles qui peuvent s'appliquer comme : </p>
     <ul mbs-3 mis-10>
-      <ListItem label="<kbd>@media (orientation: landscape|portrait) { ... }</kbd>."/>
-      <ListItem label="<kbd>@media monochrome { ... }</kbd>."/>
-      <ListItem label="<kbd>@media prefers-contrast { ... }</kbd>."/>
-      <ListItem label="<kbd>@media prefers-reduced-motion { ... }</kbd>."/>
+      <ListItem label="<kbd>@media (orientation: landscape|portrait) { ... }</kbd>"/>
+      <ListItem label="<kbd>@media monochrome { ... }</kbd>"/>
+      <ListItem label="<kbd>@media (prefers-contrast: more | less | no-preference) { ... }</kbd>"/>
+      <ListItem label="<kbd>@media (prefers-reduced-motion : reduce | no-preference)  { ... }</kbd>"/>
       <ListItem label="etc..."/>
     </ul>
   </div>
@@ -384,7 +384,7 @@ section, aside {
 
 ---
 layout: default
-transition: slide-left
+transition: slide-up
 ---
 
 <h1>Les Container Queries</h1>
@@ -405,5 +405,33 @@ transition: slide-left
   <Alert type="danger" title="Attention" text="En fonction du projet sur lequel vous travaillez, vous pourriez être ammené à développer pour des navigateurs obsoletes comme **Internet Explorer** ou des navigateurs embarqués qui ne sont pas compatibles. <br/>Pensez à vérifier la compatibilité grâce au site [Can I Use](https://caniuse.com/)."/>
 </div>
 
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-left
+---
+
+<h1>À vous de jouer !</h1>
+
+<p>Rendez-vous sur le site <a href="https://jsfiddle.net/" target="_blank">jsfiddle.net</a> pour essayer de reproduire l'exemple des container queries.</p>
+
+<p v-click>Voici le code de l'article :</p>
+
+<div v-after flex mbs-5>
+```html
+<article>
+  <img src="https://placehold.co/400" alt=""/>
+  <div>
+    <h2>Titre de l'article</h2>
+    <p>Lorem ipsum dolor sit...</p>
+    <a href="/">lire la suite</a>
+  </div>
+</article>	
+```
+</div>
+
+<p v-after>Vous devez recréer le layout avec les balises <kbd>main</kbd>, <kbd>section</kbd> et <kbd>aside</kbd>, et faire en sorte que vos articles s'adaptent à la largeur de leur conteneur parent.</p>
 
 <SlideFooter/>
