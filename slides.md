@@ -72,3 +72,10 @@ src: ./slides/bonnes-pratiques.html
 title: La sémantique HTML
 src: ./slides/design-patterns.html
 ---
+
+
+--- 
+title: Merci !
+src: ./slides/fin.html
+---
+

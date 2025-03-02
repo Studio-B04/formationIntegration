@@ -9,10 +9,447 @@ class: text-center
 <SlideFooter/>
 
 ---
+layout: image-right
+image: code.jpg
+transition: slide-up
+---
+
+<h1>Les "Design Patterns"</h1>
+
+<h2 v-click text-light>Définition :</h2>
+
+<p>Les <b>Design Patterns</b> sont des solutions éprouvées, générales et réutilisables  à des problèmes de conception récurrents dans le développement logiciel.</p>
+<p>Ce n'est pas des morceaux de code prêts à l'emploi, mais plutôt des modèles qui décrivent comment résoudre un problème de conception général.</p>
+<p>les <b>Design Patterns</b> sont indépendants du langage de programmation ou du projet.</p>
+
+<SlideFooter/>
+
+---
 layout: default
 transition: slide-up
 ---
 
 <h1>Les "Design Patterns"</h1>
+
+<div flex items-center gap-20>
+  <div>
+    <p v-click>Les <b>"Design Patterns"</b> ou <b>"Patrons de Conception"</b> en français, sont inspirés des travaux de l'architecte Christopher Alexander.</p>
+    <p v-click>Le concept est adapté en <b>1994</b> dans un ouvrage appelé :</p>
+    <p v-after mis-10><b><i>"Design Patterns: Elements of Reusable Object-Oriented Software"</i></b></p>
+    <p v-click>Les 4 auteurs de ce livres sont Erich Gamma, Richard Helm, Ralph Johnson et John Vlisside et sont plus connus sous le nom de <br><b><u>"Gang of Four"</u></b> </p>
+    <p v-after>Ce livre a eu un impact considérable sur la conception de logiciels orientés objet, en popularisant l'utilisation de modèles de conception.</p>
+  </div>
+  
+  <img v-click="2" src="/design-pattern-book.webp" alt="" width="280px">
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Avant les "Design Patterns"</h1>
+
+<div flex gap-5 items-center>
+  <div>
+    <p v-click>Au début de l’informatique, les projets étaient beaucoup plus simples qu’aujourd’hui, parfois codés sur un seul fichier, et souvent par une seule personne.</p>
+    <p v-click>Par exemple, le jeu vidéo <b>PITFALL</b> de 1982 sur Atari 2600 est un jeu codé par David Crane (co-fondateur d’activation).</p>
+    <Alert v-after type="idea" title="le saviez-vous ?" text='Le code du jeu **Pitfall** code fait **3ko** seulement, soit environ 3000 caractères. <br/> À titre de comparaison, cette image fait **168Ko** ! '/>
+  </div>
+
+  <img v-click="2" src="/pitfall.png" alt="" width="280px">
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Avant les "Design Patterns"</h1>
+
+<p>Avec le temps, les projets se sont complexifiés et les équipes de développement on grossi.</p>
+<p>De nouveaux problèmes sont arrivés : </p>
+
+<ul mis-20 mbs-10>
+  <ListItem label="Code répétitif"/>
+  <ListItem label="Code mal structuré"/>
+  <ListItem label="Difficulté de réutilisation"/>
+  <ListItem label="Difficulté de collaboration"/>
+  <ListItem label="Code difficilement maintenable"/>
+  <ListItem label="Apparition de bugs"/>
+  <ListItem label="Etc."/>
+</ul>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>L'objectif des "Design Patterns"</h1>
+
+<div flex gap-10 intems-center>
+  <div>
+    <p>L’informatique moderne existe depuis les années 1930, donc les problèmes que vous rencontrerez en tant que développeur, d’autres les ont rencontrés avant vous !</p>
+  </div>
+
+  <div w-350>
+    <p v-click>Il a pour but de  :</p>
+
+<ul>
+  <ListItem label="Faciliter la **communication** entre les développeurs à travers un **vocabulaire commun**"/>   
+  <ListItem label="Répondre au défis de **maintenabilité** et d’**évolutivité**"/>    
+  <ListItem label="**Standardiser** la structure du code et apporter des **bonnes pratiques**"/>    
+  <ListItem label="Faciliter les **test** pour limiter les **bugs**"/>    
+  <ListItem label="**Conventionner** le code"/>   
+</ul>
+  </div>
+</div>
+
+<div flex mbs-10 mis-10>
+  <Alert v-click type="idea" title="Rappel" text="Un <b>Design Pattern</b> est une <u>solution récurrente à un problème de conception dans un contexte donné</u>."/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les points clés des "Design Patterns"</h1>
+
+<p>Voici quelques points clés pour comprendre les <b>Design Patterns</b> : </p>
+
+<ul mbs-5 mx-20>
+  <ListItem label="**Solutions éprouvées :** <br/><small>Les design patterns sont le fruit de l'expérience de nombreux développeurs. Ils représentent des solutions qui ont fait leurs preuves et qui sont considérées comme de bonnes pratiques.</small>" />
+  <ListItem label="**Réutilisabilité :** <br/><small>Un design pattern peut être appliqué à différents projets et dans différents contextes, ce qui permet de gagner du temps et d'éviter de réinventer la roue.</small>" />
+  <ListItem label="**Communication :** <br/><small>Les design patterns fournissent un vocabulaire commun aux développeurs, ce qui facilite la communication et la compréhension du code.</small>" />
+  <ListItem label="**Flexibilité :** <br/><small>Les design patterns permettent de rendre le code plus flexible et plus facile à maintenir, en le structurant de manière claire et modulaire..</small>" />
+</ul>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les différents types de "Design Patterns"</h1>
+
+<p>Il existe de nombreux design patterns différents, classés en plusieurs catégories :</p>
+
+<ul mbs-10 mis-5 flex flex-col gap-5>
+  <ListItem label="**Création :** <br/><small>Ces patterns concernent la manière de créer des objets (par exemple, **Singleton**, **Factory Method**, **Abstract Factory**, etc.)</small>" />
+  <ListItem label="**Structure :** <br/><small>Ces patterns concernent la manière d'organiser les classes et les objets (par exemple, **Adapter**, **Decorator**, **Composite**, etc.).</small>" />
+  <ListItem label="**Comportement :** <br/><small>Ces patterns concernent la manière dont les objets interagissent entre eux (par exemple, **Observer**, **Strategy**, **Command**, etc.).</small>" />
+</ul>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Modèles Architecturaux</h1>
+
+<p>Bien qu'en anglais ils soient également appelés <b>Design Pattern</b>, les modèles architecturaux ne sont tout à fait comparables.</p>
+<p v-click>Contrairement au <b>Design Patterns</b> qui se concentrent sur des problèmes de conception spécifiques au niveau des classes et des objets, les <b>modèles architecturaux</b>, quant à eux, définissent la structure globale d'une application, c'est-à-dire la manière dont les différents composants interagissent entre eux.</p>
+<p v-click>Ils sont donc à un niveau d'abstraction plus élevé.</p>
+
+<div v-click flex mbs-15 mx-20>
+  <Alert type="information" title="Important" text="Les modèles architecturaux sont cruciaux pour la conception de logiciels robustes et maintenables."/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Le but et l'utilité des Modèles Architecturaux</h1>
+
+<p>Les modèles architecturaux servent de plans directeurs pour la structure globale d'une application. Ils définissent comment les différents composants interagissent, communiquent et sont organisés.</p>
+<p>Leur objectif principal est de :</p>
+
+<ul mx-20>
+  <ListItem label="**Séparation des préoccupations :** <br/><small>Diviser une application en composants distincts, chacun ayant une responsabilité spécifique. Cela améliore la lisibilité, la maintenabilité et la testabilité du code.</small>" />
+  <ListItem label="**Faciliter la collaboration :** <br/><small>Fournir un langage commun et une structure claire pour les équipes de développement.</small>" />
+  <ListItem label="**Améliorer la flexibilité et l'évolutivité :** <br/><small>Permettre de modifier ou d'ajouter des fonctionnalités sans perturber l'ensemble de l'application.</small>" />
+  <ListItem label="**Réduire la complexité :** <br/><small>Simplifier la gestion de grandes applications en les décomposant en modules plus gérables.</small>" />
+</ul>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Modèles Architecturaux les plus courants</h1>
+<h2 class="text-light !text-xl">1. Le MVC (Modèle-Vue-Contrôleur)</h2>
+
+<ul mbs-15 mx-10>
+  <ListItem label="**Modèle :** Représente les données et la logique métier de l'application." />
+  <ListItem label="**Vue :** Affiche les données à l'utilisateur et gère l'interface utilisateur." />
+  <ListItem label="**Contrôleur :** Agit comme un intermédiaire entre le modèle et la vue, traitant les entrées de l'utilisateur et mettant à jour le modèle et la vue en conséquence." />
+</ul>
+
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Modèles Architecturaux les plus courants</h1>
+<h2 class="text-light !text-xl">1. Le MVC (Modèle-Vue-Contrôleur)</h2>
+<h3 class="mbs-5  !text-lg">Fonctionnement :</h3>
+
+<div flex gap-5 items-start>
+  <ol mbs-5 mx-10>
+    <ListItem label="L'utilisateur interagit avec la **vue**." />
+    <ListItem label="La **vue** envoie les actions de l'utilisateur au **contrôleur**." />
+    <ListItem label="Le **contrôleur** met à jour le **modèle** en fonction des actions." />
+    <ListItem label="Le **modèle** notifie la **vue** des changements." />
+    <ListItem label="La **vue** se met à jour pour afficher les changements." />
+  </ol>
+  
+  <img src="/MVC.png" alt="" width="450px" shrink-0>
+</div>
+
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Modèles Architecturaux les plus courants</h1>
+<h2 class="text-light !text-xl">1. Le MVC (Modèle-Vue-Contrôleur)</h2>
+
+<div mbs-5 mx-10 flex gap-5 items-start justify-evenly>
+  <div w-full>
+    <h3 class="mbs-5 !text-lg">👍🏼 Les avantages :</h3>
+    <ul mbs-5>
+      <ListItem label="Clarté et organisation du code." />
+      <ListItem label="Réutilisabilité des composants." />
+      <ListItem label="Facilité de test." />
+    </ul>
+  </div>
+
+  <div w-full>
+    <h3 class="mbs-5 !text-lg">👎🏼 Les inconvénients :</h3>
+    <ul mbs-5>
+      <ListItem label="Peut devenir complexe dans les applications avec des interfaces utilisateur très riches." />
+      <ListItem label="La vue est très liée au modèle." />
+    </ul>
+  </div>
+</div>
+
+<div v-click flex mbs-10 mx-20>
+  <Alert title="Quelques exemples de MVC" type="information" text="Voici quelques frameworks connus dont l'architecture est basée sur le modèle **MVC** : <br/><ul><li>Ruby on Rails (Ruby):</li><li>Django (Python)</li><li>Laravel (PHP)</li><li>Symfony (PHP)</li><li>AngularJS (JavaScript)</li><ul>"/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Modèles Architecturaux les plus courants</h1>
+<h2 class="text-light !text-xl">2. Le MVP (Modèle-Vue-Présentation)</h2>
+
+<p>Ce patron d'architecture est considéré comme un dérivé du patron d'architecture <b>MVC</b>.</p>
+
+<p>Il garde les mêmes principes que <b>MVC</b> sauf qu'il élimine l'interaction entre la vue et le modèle parce qu'elle sera effectuée par le biais de la <b>présentation</b>, qui organise les données à afficher dans la vue.</p>
+
+<ul mbs-5 mx-10>
+  <ListItem label="**Modèle :** Similaire au modèle dans **MVC**, il représente les données et la logique métier." />
+  <ListItem label="**Vue :** Affiche les données et capture les entrées de l'utilisateur, mais elle est plus passive que dans **MVC**." />
+  <ListItem label="**Présentation :** Contient la logique de l'interface utilisateur, agissant comme un intermédiaire entre le modèle et la vue." />
+</ul>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Modèles Architecturaux les plus courants</h1>
+<h2 class="text-light !text-xl">2. Le MVP (Modèle-Vue-Présentation)</h2>
+<h3 class="mbs-5  !text-lg">Fonctionnement :</h3>
+
+<div flex gap-5 items-start>
+  <ol mbs-5 mx-10>
+    <ListItem label="La **vue** délègue les actions de l'utilisateur au **présentateur**." />
+    <ListItem label="Le **présentateur** met à jour le **modèle** et la **vue**." />
+  </ol>
+  
+  <img src="/MVP.png" alt="" width="400px" shrink-0>
+</div>
+
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Modèles Architecturaux les plus courants</h1>
+<h2 class="text-light !text-xl">2. Le MVP (Modèle-Vue-Présentation)</h2>
+
+<div mbs-0 mx-10 flex gap-5 items-start justify-evenly>
+  <div w-full>
+    <h3 class="mbs-5 !text-lg">👍🏼 Les avantages :</h3>
+    <ul mbs-5>
+      <ListItem label="Séparation plus claire des responsabilités que **MVC**." />
+      <ListItem label="Testabilité accrue, car la logique de l'interface utilisateur est isolée dans le **présentateur**." />
+      <ListItem label="Un seul **présentateur** peux interagir avec plusieurs **vues**." />
+    </ul>
+  </div>
+
+  <div w-full>
+    <h3 class="mbs-5 !text-lg">👎🏼 Les inconvénients :</h3>
+    <ul mbs-5>
+      <ListItem label="Peut entraîner une augmentation de la complexité du code." />
+    </ul>
+  </div>
+</div>
+
+<div v-click flex mbs-5 mx-20>
+  <Alert title="Quelques exemples de MPV" type="information" text="Le modèle **MVP** est algement utilisé dans le developpement d'applications : <br/><br/><ul><li>Applicaiton mobiles (Android, iOS)</li><li>Applicaiton de bureau (.NET, WPF, etc.)</li><li>Jeux vidéo (Unity, Unreal, etc.)</li><ul>"/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Modèles Architecturaux les plus courants</h1>
+<h2 class="text-light !text-xl">3. Le MVVM (Modèle-Vue-VueModèle)</h2>
+
+<ul mbs-15 mbe-10 mx-10>
+  <ListItem label="**Modèle :** Représente les données et la logique métier de l'application, comme en **MVC** et **MVP**." />
+  <ListItem label="**Vue :** Affiche les données à l'utilisateur et gère l'interface utilisateur, comme en **MVP**." />
+  <ListItem label="**VueModèle :** Un intermédiaire entre le modèle et la vue, exposant les données du modèle dans un format facile à utiliser pour la vue." />
+</ul>
+
+<p v-click>Le <b>MVVM</b> se distingue principalement par son utilisation intensive de la liaison de données (data binding).</p>
+<p v-after>Cette technique permet une synchronisation automatique entre l'interface utilisateur <b>(Vue)</b> et les données <b>(VueModèle)</b>.</p>
+
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Modèles Architecturaux les plus courants</h1>
+<h2 class="text-light !text-xl">3. Le MVVM (Modèle-Vue-VueModèle)</h2>
+
+<p>En <b>MVVM</b>, la <b>vue</b> est conçue pour être passive, se contentant de refléter l'état du <b>VueModèle</b>.</p>
+<p v-click>Le coeur du <b>MVVM</b> est la <b>VueModèle</b> qui agit comme un intermediare entre le <b>modèle</b> et la <b>vue</b>. Elle contient la logique de présentation, c'est-à-dire la logique spécifique à l'interface utilisateur. La liaison de données assure que les modifications du <b>VueModèle</b> sont automatiquement répercutées dans la <b>vue</b>, et vice-versa.</p>
+
+<p v-click>En résumé :</p>
+<ul mis-10>
+  <ListItem label="en **MVC** : le **contrôleur** contrôle la **vue**."/>
+  <ListItem label="en **MVVM** :  la **vue** se synchronise avec le **VueModèle**."/>
+</ul>
+
+<div v-click flex mbs-10 mx-20>
+  <Alert type="idea" title=" " text="Le **MVVM** est particulièrement adapté aux applications avec des interfaces utilisateur complexes et dynamiques, où la réactivité et la testabilité sont essentielles."/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Modèles Architecturaux les plus courants</h1>
+<h2 class="text-light !text-xl">3. Le MVVM (Modèle-Vue-VueModèle)</h2>
+<h3 class="mbs-5  !text-lg">Fonctionnement :</h3>
+
+<div flex gap-5 items-start>
+  <ul mbs-5 mis-5>
+    <ListItem label="La **vue** est liée au **VueModèle** via la liaison de données (data binding)." />
+    <ListItem label="Le **VueModèle** expose des commandes et des propriétés que la **vue** peut utiliser." />
+    <ListItem label="Le **VueModel** est indépendant de la **vue**." />
+    <ListItem label="Les changements du **modèle** sont automatiquement reflétés dans la **vue** grâce à la liaison de données." />
+  </ul>
+  
+  <img src="/MVVM.png" alt="" width="450px" shrink-0>
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
+<h1>Les Modèles Architecturaux les plus courants</h1>
+<h2 class="text-light !text-xl">3. Le MVVM (Modèle-Vue-VueModèle)</h2>
+
+<div mbs-5 mx-10 flex gap-5 items-start justify-evenly>
+  <div w-full>
+    <h3 class="mbs-5 !text-lg">👍🏼 Les avantages :</h3>
+    <ul mbs-5>
+      <ListItem label="Excellente séparation des préoccupations." />
+      <ListItem label="Testabilité élevée." />
+      <ListItem label="Facilite la création d'interfaces utilisateur réactives grâce à la liaison de données. (SPA)" />
+    </ul>
+  </div>
+
+  <div w-full>
+    <h3 class="mbs-5 !text-lg">👎🏼 Les inconvénients :</h3>
+    <ul mbs-5>
+      <ListItem label="Peut entraîner une complexité accrue dans les applications simples." />
+      <ListItem label="La liaison de données peut ajouter une couche d'abstraction parfois difficile à debugger." />
+    </ul>
+  </div>
+</div>
+
+<div v-click flex mbs-5 mx-20>
+  <Alert title="Quelques exemples de MVVM" type="information" text="Voici quelques frameworks connus dont l'architecture est basée sur le modèle **MVC** : <br/><br/><ul><li>WPF : Windows Presentation Fundation (.NET):</li><li>MAUI: Multi-platform App UI (.NET)</li><li>Angular (JavaScript)</li><li>React (JavaScript)</li><ul>"/>
+</div>
+
+<SlideFooter/>
+
+---
+layout: image-left
+image: code.jpg
+transition: fade
+---
+
+<h1>Conclusion</h1>
+
+<p>Les <b>Design Patterns</b> et les <b>Modèles Architecturaux</b> sont des outils essentiels à tout développeur.</p>
+<p>Ils fournissent des solutions éprouvées et des structures organisationnelles qui favorisent la création de logiciels plus robustes, flexibles et maintenables.</p>
+
+
+<Alert type="idea" title="Bon à savoir" text="Le choix d'un **Design Pattern** dépend des besoins spécifiques du projet et de la solution utilisée. Il est parfois nécessaire de combiner plusieurs approches pour obtenir le meilleur résultat." />
+
+
+<div @click="$slidev.nav.next" mbs-10 text-end text-primary cursor-pointer>
+  Fin de la formation <carbon-arrow-right />
+</div>
 
 <SlideFooter/>
