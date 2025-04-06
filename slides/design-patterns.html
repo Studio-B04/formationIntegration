@@ -16,10 +16,10 @@ transition: slide-up
 
 <h1>Les "Design Patterns"</h1>
 
-<h2 v-click text-light>Définition :</h2>
+<h2 text-light>Définition :</h2>
 
 <p>Les <b>Design Patterns</b> sont des solutions éprouvées, générales et réutilisables  à des problèmes de conception récurrents dans le développement logiciel.</p>
-<p>Ce n'est pas des morceaux de code prêts à l'emploi, mais plutôt des modèles qui décrivent comment résoudre un problème de conception général.</p>
+<p>Ce ne sont pas des morceaux de code prêts à l'emploi, mais plutôt des modèles qui décrivent comment résoudre un problème de conception général.</p>
 <p>les <b>Design Patterns</b> sont indépendants du langage de programmation ou du projet.</p>
 
 <SlideFooter/>
@@ -56,7 +56,7 @@ transition: slide-up
   <div>
     <p v-click>Au début de l’informatique, les projets étaient beaucoup plus simples qu’aujourd’hui, parfois codés sur un seul fichier, et souvent par une seule personne.</p>
     <p v-click>Par exemple, le jeu vidéo <b>PITFALL</b> de 1982 sur Atari 2600 est un jeu codé par David Crane (co-fondateur d’activation).</p>
-    <Alert v-after type="idea" title="le saviez-vous ?" text='Le code du jeu **Pitfall** code fait **3ko** seulement, soit environ 3000 caractères. <br/> À titre de comparaison, cette image fait **168Ko** ! '/>
+    <Alert v-after type="idea" title="le saviez-vous ?" text='Le code source du jeu **Pitfall** code fait **3ko** seulement, soit environ 3000 caractères. <br/> À titre de comparaison, cette image fait **168Ko** ! '/>
   </div>
 
   <img v-click="2" src="/pitfall.png" alt="" width="280px">
@@ -93,20 +93,20 @@ transition: slide-up
 
 <h1>L'objectif des "Design Patterns"</h1>
 
-<div flex gap-10 intems-center>
+<div flex gap-10 items-center>
   <div>
     <p>L’informatique moderne existe depuis les années 1930, donc les problèmes que vous rencontrerez en tant que développeur, d’autres les ont rencontrés avant vous !</p>
   </div>
 
   <div w-350>
-    <p v-click>Il a pour but de  :</p>
+    <p v-click><b>Les Design-patterns</b> ont pour but de :</p>
 
 <ul>
-  <ListItem label="Faciliter la **communication** entre les développeurs à travers un **vocabulaire commun**"/>   
-  <ListItem label="Répondre au défis de **maintenabilité** et d’**évolutivité**"/>    
-  <ListItem label="**Standardiser** la structure du code et apporter des **bonnes pratiques**"/>    
-  <ListItem label="Faciliter les **test** pour limiter les **bugs**"/>    
-  <ListItem label="**Conventionner** le code"/>   
+<ListItem label="Faciliter la **communication** entre les développeurs à travers un **vocabulaire commun**"/>   
+<ListItem label="Répondre au défis de **maintenabilité** et d’**évolutivité**"/>    
+<ListItem label="**Standardiser** la structure du code et apporter des **bonnes pratiques**"/>    
+<ListItem label="Faciliter les **test** pour limiter les **bugs**"/>    
+<ListItem label="**Conventionner** le code"/>   
 </ul>
   </div>
 </div>
@@ -126,7 +126,7 @@ transition: slide-up
 
 <p>Voici quelques points clés pour comprendre les <b>Design Patterns</b> : </p>
 
-<ul mbs-5 mx-20>
+<ul mbs-10 mx-20>
   <ListItem label="**Solutions éprouvées :** <br/><small>Les design patterns sont le fruit de l'expérience de nombreux développeurs. Ils représentent des solutions qui ont fait leurs preuves et qui sont considérées comme de bonnes pratiques.</small>" />
   <ListItem label="**Réutilisabilité :** <br/><small>Un design pattern peut être appliqué à différents projets et dans différents contextes, ce qui permet de gagner du temps et d'éviter de réinventer la roue.</small>" />
   <ListItem label="**Communication :** <br/><small>Les design patterns fournissent un vocabulaire commun aux développeurs, ce qui facilite la communication et la compréhension du code.</small>" />
@@ -145,9 +145,9 @@ transition: slide-up
 <p>Il existe de nombreux design patterns différents, classés en plusieurs catégories :</p>
 
 <ul mbs-10 mis-5 flex flex-col gap-5>
-  <ListItem label="**Création :** <br/><small>Ces patterns concernent la manière de créer des objets (par exemple, **Singleton**, **Factory Method**, **Abstract Factory**, etc.)</small>" />
-  <ListItem label="**Structure :** <br/><small>Ces patterns concernent la manière d'organiser les classes et les objets (par exemple, **Adapter**, **Decorator**, **Composite**, etc.).</small>" />
-  <ListItem label="**Comportement :** <br/><small>Ces patterns concernent la manière dont les objets interagissent entre eux (par exemple, **Observer**, **Strategy**, **Command**, etc.).</small>" />
+  <ListItem label="**Créationnels :** <br/><small>Ces patterns concernent la manière de créer des objets (par exemple, **Singleton**, **Factory Method**, **Abstract Factory**, etc.)</small>" />
+  <ListItem label="**Structurels :** <br/><small>Ces patterns concernent la manière d'organiser les classes et les objets (par exemple, **Adapter**, **Decorator**, **Composite**, etc.).</small>" />
+  <ListItem label="**Comportementaux :** <br/><small>Ces patterns concernent la manière dont les objets interagissent entre eux (par exemple, **Observer**, **Strategy**, **Command**, etc.).</small>" />
 </ul>
 
 <SlideFooter/>
@@ -159,8 +159,8 @@ transition: slide-up
 
 <h1>Les Modèles Architecturaux</h1>
 
-<p>Bien qu'en anglais ils soient également appelés <b>Design Pattern</b>, les modèles architecturaux ne sont tout à fait comparables.</p>
-<p v-click>Contrairement au <b>Design Patterns</b> qui se concentrent sur des problèmes de conception spécifiques au niveau des classes et des objets, les <b>modèles architecturaux</b>, quant à eux, définissent la structure globale d'une application, c'est-à-dire la manière dont les différents composants interagissent entre eux.</p>
+<p>Bien qu'en anglais ils soient également appelés <b>Design Pattern</b>, les modèles architecturaux ne sont pas tout à fait comparables aux patrons de conception.</p>
+<p v-click>Contrairement au <b>Patrons de conception</b> qui se concentrent sur des problèmes de conception spécifiques au niveau des classes et des objets, les <b>modèles architecturaux</b>, quant à eux, définissent la structure globale d'une application, c'est-à-dire la manière dont les différents composants interagissent entre eux.</p>
 <p v-click>Ils sont donc à un niveau d'abstraction plus élevé.</p>
 
 <div v-click flex mbs-15 mx-20>
@@ -270,7 +270,7 @@ transition: slide-up
 <h1>Les Modèles Architecturaux les plus courants</h1>
 <h2 class="text-light !text-xl">2. Le MVP (Modèle-Vue-Présentation)</h2>
 
-<p>Ce patron d'architecture est considéré comme un dérivé du patron d'architecture <b>MVC</b>.</p>
+<p>Ce modèle d'architecture est considéré comme un dérivé du <b>MVC</b>.</p>
 
 <p>Il garde les mêmes principes que <b>MVC</b> sauf qu'il élimine l'interaction entre la vue et le modèle parce qu'elle sera effectuée par le biais de la <b>présentation</b>, qui organise les données à afficher dans la vue.</p>
 
@@ -330,7 +330,7 @@ transition: slide-up
 </div>
 
 <div v-click flex mbs-5 mx-20>
-  <Alert title="Quelques exemples de MPV" type="information" text="Le modèle **MVP** est algement utilisé dans le developpement d'applications : <br/><br/><ul><li>Applicaiton mobiles (Android, iOS)</li><li>Applicaiton de bureau (.NET, WPF, etc.)</li><li>Jeux vidéo (Unity, Unreal, etc.)</li><ul>"/>
+  <Alert title="Quelques exemples de MPV" type="information" text="Le modèle **MVP** est algement utilisé dans le developpement d'applications : <br/><br/><ul><li>Applications mobiles (Android, iOS)</li><li>Applications de bureau (.NET, WPF, etc.)</li><li>Jeux vidéo (Unity, Unreal, etc.)</li><ul>"/>
 </div>
 
 <SlideFooter/>

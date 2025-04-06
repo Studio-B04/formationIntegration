@@ -74,24 +74,21 @@ transition: slide-up
 <h1>Organisation et structure</h1>
 <h2 mbs-5 text-light class="!text-xl">Mobile first</h2>
 
-<p>
-  Aujourd'hui, <b>plus de 50% du traffic internet mondial</b> provient des appareils mobiles.
-  La plupart des gens privilegient le smartphone pour consulter des sites internet.
-</p>
-
-<p v-click>
-  Sur un smartphone, même avec la 5G, les temps de chargement sont souvent plus longs que sur une connexion filaire avec un PC, et les performances sont aussi moins importante. 
-</p>
+<p v-click>Aujourd'hui, <b>plus de 50% du traffic internet mondial</b> provient des appareils mobiles. La plupart des gens privilegient le smartphone pour consulter des sites internet.<br/>Sur un smartphone, même avec la 5G, les temps de chargement sont souvent plus longs que sur une connexion filaire avec un PC, et les performances sont aussi moins importante.</p>
 
 <h3 v-click class="!text-lg">Une conception progressive (Progressive Enhancement)</h3>
 
 <p v-after>👉 On développe d’abord une version simple et efficace pour mobile, puis on l’enrichit pour les écrans plus grands.</p>
 
-<ul mbs-3 mis-10>
+<ul mis-10>
   <ListItem label="📱 **Mobile** → Interface épurée, chargement rapide, navigation simplifiée."/>
   <ListItem label="⬛ **Tablette** → Ajout d’éléments secondaires (effets, colonnes, animations)."/>
   <ListItem label="🖥️ **Desktop** → Version complète avec plus de détails et de fonctionnalités, d'animations, etc."/>
 </ul>
+
+<div v-click flex mbs-5 mx-15>
+  <Alert type="danger" text="🚨 Ce n'est pas une bonne pratique de délivrer un contenu différent sur mobile et sur desktop !"/>
+</div>
 
 <SlideFooter/>
 
@@ -105,7 +102,7 @@ transition: slide-up
 
 <div flex gap-20 mbs-10 items-center>
 
-<div>
+<div v-click>
 <strong mbe-3 block>❌ Approche "Desktop first"</strong>
 
 ```css
@@ -578,7 +575,7 @@ transition: slide-up
 
 <p v-click>On peux donc <b>minifier</b> le code. C'est à dire le rendre le plus léger possible sans que le sens en soit changé. Exemple : </p>
 
-<div v-click flex gap-10 items-center>
+<div v-click flex mbs-5 gap-15 items-center>
 
 <div>
 ```js
@@ -593,7 +590,7 @@ function sayHello(name) {
 <div>
 <strong>Après la minification :</strong>
 ```js
-const a="John";function s(n){return`Hello ${n} !`}
+const a="John",s=n=>`Hello ${n} !`
 ```
 </div>
 
@@ -616,7 +613,7 @@ transition: slide-left
 
 <p v-click>
   On l'a vu lors du chapitre sur le <b>protocole HTTP</b>, les pages font énormément d'appels au serveur pour récupérer des fichiers.
-  Il est beacoup plus performant de demander au serveur <b>un fichier de 1Mo</b> que <b>100 fichiers de 10Ko</b>.
+  Il est beaucoup plus performant de demander au serveur <b>un fichier de 1Mo</b> que <b>100 fichiers de 10Ko</b>.
 </p>
 
 <p v-click>
@@ -625,6 +622,6 @@ transition: slide-left
   Cette opération se fait automatiquement grâce à des outils comme <b>Gulp</b>, <b>Webpack</b>, <b>Rollup</b>, etc.
 </p>
 
-<img v-after src="/bundle.png" alt="" class="block w-[550px] mx-auto">
+<img v-after src="/bundle.png" alt="" class="block w-[450px] mx-auto">
  
 <SlideFooter/>

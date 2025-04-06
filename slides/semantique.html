@@ -21,7 +21,7 @@ transition: slide-up
 
 <p v-click>Concrètement cela signifie que l'utilisation d'une balise peux modifier la compréhension d'un page Web et donc pénaliser le <b>SEO</b> ou l'<b>accessibilité</b></p>
 
-<p v-click>Par exemple, une image présentée dans une balise <kbd>&lt;img/&gt;</kbd> sera bien interprétée comme telle par les lecteurs décran et les moteurs de recherche. En revanche une <kbd>&lt;div/&gt;</kbd> avec un <code>background-image</code> en CSS sera ignorée !</p>
+<p v-click>Par exemple, une image présentée dans une balise <kbd>&lt;img/&gt;</kbd> sera bien interprétée comme telle par les lecteurs décran et les moteurs de recherche.<br/>En revanche une <kbd>&lt;div/&gt;</kbd> avec un <code>background-image</code> en <b>CSS</b> sera ignorée !</p>
 
 <div v-click flex mbs-10>
   <Alert type="idea" title="Petit défi" text="Il existe plus de [100 balises différentes](https://jaetheme.com/tutoriels-ui/liste-des-balises-html5/) en HTLM5, chacune a un rôle bien précis. <br/>Combien pouvez vous en citer ? Jouons à un [petit jeu](https://www.sporcle.com/games/drywall/html_elements) ! "/>
@@ -186,31 +186,80 @@ transition: slide-up
 </div> 
 
 <div v-click flex mbs-5>
-  <Alert type="information" title="Bon à savoir" text="Cette rêgle s'applique à toutes les balises ! le choix de la balise ne doit pas être dterminé par son style. <br/>(par exemple : utiliser un lien pour ouvrir une modale parce qu'on veux que ça ressemble à un lien classique)"/>
+  <Alert type="information" title="Bon à savoir" text="Cette rêgle s'applique à toutes les balises ! Le choix de la balise ne doit pas être déterminé par son style. <br/>(par exemple : utiliser un lien pour ouvrir une modale parce qu'on veux que ça ressemble à un lien classique)"/>
 </div> 
 
 <SlideFooter/>
 
 
 ---
-layout: default
-transition: slide-up
+layout: image-right
+transition: none
 ---
 
 <h1>La balise &lt;title/&gt;</h1>
 
-<p>Cette balise un peu spéciale représente le titre global de la page et peux tout à fait reprendre le <kbd>h1</kbd>.</p>
+<p>Cette balise un peu spéciale représente le titre global de la page. Elle doit être unique et présente dans le <kbd>head</kbd> de votre page.</p>
+<p>C'est ce titre qui sera affiché dans l'onglet de votre navigateur, ou dans les résultats de recherches sur <b>Google</b> par exemple.</p>
 
-<p>Elle doit être unique et présente dans le <kbd>head</kbd> de votre page. c'est ce titre qui sera affiché dans l'onglet de votre navigateur, ou dans les résultats de recherches sur <b>Goggle</b> par exemple.</p>
-
-<div v-click flex mbs-5>
+<div v-click flex mbs-3>
   <Alert type="idea" title="Bon à savoir" text="Si on a plein d'onglets ouverts ouverts en même temps, il peut être pratique d'indiquer à quoi ils correspondent. <br/>La bonne pratique c'est de mettre également le nom du site"/>
 </div> 
 
 
-<div v-click>
-  <h2 class="!text-sm !text-light mbs-10 mbe-0">Exemple: </h2>
-  <p><kbd>&lt;title&gt;Decathlon | CHAUSSURES DE RUNNING FEMME KALENJI&lt;/title&gt;</kbd></p>
+<div v-click mbs-5>
+  <h2 class="!text-sm !text-light !my-0">Exemple: </h2>
+  <p><kbd>Decathlon | CHAUSSURES DE RUNNING FEMME KALENJI</kbd></p>
+</div>
+
+<SlideFooter/>
+
+
+
+---
+layout: image-right
+transition: none
+image: title.jpg
+---
+
+<h1>La balise &lt;title/&gt;</h1>
+
+<p>Cette balise un peu spéciale représente le titre global de la page. Elle doit être unique et présente dans le <kbd>head</kbd> de votre page.</p>
+<p>C'est ce titre qui sera affiché dans l'onglet de votre navigateur, ou dans les résultats de recherches sur <b>Google</b> par exemple.</p>
+
+<div flex mbs-3>
+  <Alert type="idea" title="Bon à savoir" text="Si on a plein d'onglets ouverts ouverts en même temps, il peut être pratique d'indiquer à quoi ils correspondent. <br/>La bonne pratique c'est de mettre également le nom du site"/>
+</div> 
+
+
+<div mbs-5>
+  <h2 class="!text-sm !text-light !my-0">Exemple: </h2>
+  <p><kbd>Decathlon | CHAUSSURES DE RUNNING FEMME KALENJI</kbd></p>
+</div>
+
+<SlideFooter/>
+
+
+
+---
+layout: image-right
+transition: slide-up
+image: title-2.jpg
+---
+
+<h1>La balise &lt;title/&gt;</h1>
+
+<p>Cette balise un peu spéciale représente le titre global de la page. Elle doit être unique et présente dans le <kbd>head</kbd> de votre page.</p>
+<p>C'est ce titre qui sera affiché dans l'onglet de votre navigateur, ou dans les résultats de recherches sur <b>Google</b> par exemple.</p>
+
+<div flex mbs-3>
+  <Alert type="idea" title="Bon à savoir" text="Si on a plein d'onglets ouverts ouverts en même temps, il peut être pratique d'indiquer à quoi ils correspondent. <br/>La bonne pratique c'est de mettre également le nom du site"/>
+</div> 
+
+
+<div mbs-5>
+  <h2 class="!text-sm !text-light !my-0">Exemple: </h2>
+  <p><kbd>Decathlon | CHAUSSURES DE RUNNING FEMME KALENJI</kbd></p>
 </div>
 
 <SlideFooter/>
@@ -232,7 +281,7 @@ transition: slide-up
 
 
 <div v-after grid grid-cols-4 mbs-10 mis-20 mie-100 gap-y-5>
-  <span><span v-mark="{ at:2, color: '#f43f5e', type: 'circle' }"><kbd>header</kbd></span></span>
+  <span><span v-mark="{ at:1, color: '#f43f5e', type: 'circle' }"><kbd>header</kbd></span></span>
   <span><kbd>main</kbd></span>
   <span><kbd>footer</kbd></span>
   <span><kbd>section</kbd></span>
@@ -472,7 +521,7 @@ transition: slide-up
 </div>
 
 <div v-click flex mbs-10>
-  <Alert type="information" title="Explication" text="Ici il s'agit de carte représentant des produits similaires,<br/>chaque produit a le même template : une photo, un titre, des étoiles d'avis client, etc.."/>
+  <Alert type="information" title="Explication" text="Ici il s'agit de cartes représentant des produits similaires,<br/>chaque produit a le même template : une photo, un titre, des étoiles d'avis client, etc.."/>
 </div>
 
 <SlideFooter/>
