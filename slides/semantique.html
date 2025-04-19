@@ -17,7 +17,7 @@ transition: slide-up
 
 <h2 v-click text-light>Définition</h2>
 
-<p v-after>"La sémantique en <b>HTML</b> consiste à utiliser des balises qui donnent du sens au contenu, permettant aux navigateurs, aux moteurs de recherche et aux technologies d'assistance (ex. lecteurs d'écran) de mieux interpréter une page web."</p>
+<p v-after>"La sémantique en <b>HTML</b> consiste à utiliser des balises qui donnent du <strong><u>sens</u></strong> au contenu, permettant aux navigateurs, aux moteurs de recherche et aux technologies d'assistance (ex. lecteurs d'écran) de mieux interpréter une page web."</p>
 
 <p v-click>Concrètement cela signifie que l'utilisation d'une balise peux modifier la compréhension d'un page Web et donc pénaliser le <b>SEO</b> ou l'<b>accessibilité</b></p>
 
@@ -37,25 +37,23 @@ transition: slide-up
 
 <h1>Pourquoi est-ce important ?</h1>
 
-<ul mis-10>
-  <ListItem label="♿ **Accessibilité** : facilite la navigation pour les personnes en situation de handicap"/>
-</ul>
-<p v-after mis-10>Les personnes non voyantes par exemple, utilisent des lecteurs d'écran qui vont décrire vocalement ce que la page contient. Le sens des balises est très important ici.</p>
-
-
-
-<ul mis-10>
-  <ListItem label="🔎 **S.E.O** : améliore le référencement naturel des pages web"/>
-</ul>
-<p v-after mis-10>Les moteurs de recherche comme <b>Goggle</b> ou <b>Bing</b> ne voient pas les pages mais interprètent le code <b>HTML</b>. Une page bien construite sera donc mieux référencée.</p>
-
-
-
-<ul mis-10>
-  <ListItem label="⚙️ **Maintenance** : un code plus lisible et compréhensible par les développeurs"/>
-</ul>
-<p v-after mis-10>Si un code <b>HTML</b> ext correctement structuré, on peux facilement déduire son apparence ou son fonctionnement juste en lisant le code, et donc gagner un temps précieux lors du développement et du déboguage.</p>
-
+<div mbs-10>
+  <ul mis-10>
+    <ListItem label="♿ **Accessibilité** : facilite la navigation pour les personnes en situation de handicap"/>
+  </ul>
+  <p v-after mis-10>Les personnes non voyantes par exemple, utilisent des lecteurs d'écran qui vont décrire vocalement ce que la page contient. Le sens des balises est très important ici.</p>
+  
+  <ul mis-10>
+    <ListItem label="🔎 **S.E.O** : améliore le référencement naturel des pages web"/>
+  </ul>
+  <p v-after mis-10>Les moteurs de recherche comme <b>Goggle</b> ou <b>Bing</b> ne voient pas les pages mais interprètent le code <b>HTML</b>. Une page bien construite sera donc mieux référencée.</p>
+  
+  <ul mis-10>
+    <ListItem label="⚙️ **Maintenance** : un code plus lisible et compréhensible par les développeurs"/>
+  </ul>
+  <p v-after mis-10>Si un code <b>HTML</b> est correctement structuré, on peux facilement en déduire son apparence ou son fonctionnement, et donc gagner un temps précieux lors du développement et du déboguage.</p>
+  
+</div>
 
 <SlideFooter/>
 
@@ -71,7 +69,7 @@ transition: slide-up
 <p>
   Ce code est <b>non sémantique</b>.
   <br/>
-  <b>👉 Problème</b> : Les <kbd>div</kbd> n'ont pas de sens en elles-mêmes<br/>elles ne renseignent pas sur leur rôle.
+  <b>👉 Problème</b> : Les balises <kbd>div</kbd> n'ont pas de sens en elles-mêmes.<br/>Elles ne renseignent pas sur leur rôle.
 </p>
 ```html
 <div id="header"></div>
@@ -99,8 +97,8 @@ transition: slide-up
 ```
 </div>
 
-<div v-click mbs-5 flex>
-  <Alert type="warning" title="Important" text="Même si ici les classes permettent de déduire le role de chaque <kbd>div</kbd>, ce n'est pas conforme, donc non accessible"/>
+<div v-click mbs-2 flex>
+  <Alert type="warning" title="Important" text="Même si ici les classes permettent de déduire le role de chaque <kbd>div</kbd>, les lecteurs d'écran et les moteurs de recherche ne voient pas les classes, et ne peuvent donc pas comprendre la structure de la page."/>
 </div>
 
 <SlideFooter/>
@@ -125,11 +123,11 @@ transition: slide-up
   <tbody>
     <tr v-click>
       <td><kbd>&lt;header&gt;</kbd></td>
-      <td>En-tête de la page ou d'une section (si c'est le header principal du site, on ajoute <kbd>role="banner"</kbd> )</td>
+      <td>En-tête de la page ou d'une section (si c'est le header principal de la page, on ajoute <kbd>role="banner"</kbd> )</td>
     </tr>
     <tr v-click>
       <td><kbd>&lt;footer&gt;</kbd></td>
-      <td>Pied de la page ou d'une section (si c'est le footer principal du site, on ajoute <kbd>role="contentinfo"</kbd> )</td>
+      <td>Pied de la page ou d'une section (si c'est le footer principal de la page, on ajoute <kbd>role="contentinfo"</kbd> )</td>
     </tr>
     <tr v-click>
       <td><kbd>&lt;main&gt;</kbd></td>
@@ -539,7 +537,7 @@ transition: slide-left
 <p>Il existe une balise pour chaque usage. Le choix d'utiliser une balise générique comme <kbd>&lt;div&gt;</kbd> doit se faire dans des cas bien précis, mais en aucun cas pour des éléments structurels.</p>
 
 
-<Alert type="idea" title="Bon à savoir" text="On peux ajouter de la précision avec les attributs **role** et **ARIA** pour indiquer aux lecteurs d'écrans dans quel but est utilisé une balise ajouter des informations." />
+<Alert type="idea" title="Bon à savoir" text="On peux ajouter de la précision avec les attributs **role** et **ARIA** pour indiquer aux lecteurs d'écrans dans quel but est utilisé une balise ajouter des informations.<br/>Nous verrons ça en details plus tard, lors du chapitre sur l'accessibilité." />
 
 
 <div @click="$slidev.nav.next" mbs-10 text-end text-primary cursor-pointer>

@@ -15,14 +15,14 @@ transition: slide-up
 
 <h1>C'est quoi le Responsive Design ?</h1>
 
-<p>Le <b>Responsive Design</b> consiste à adapter l'affichage d'une application web <b>en fonction de la taille de l'écran</b> sur lequel elle sera affichée.</p>
+<p>Le <b>Responsive Design</b> consiste à adapter l'affichage d'une application web <b>en fonction de la taille ou du type de l'écran</b> sur lequel elle sera affichée.</p>
 
 <p v-click>Auparavant, il était fréquent d'avoir un site différent pour le mobile et pour le desktop. Avec la multiplication des tailles écrans et des devices (TV connectée, montre connectée, tablette, etc.) on privilégie un code unique mais adaptatif.</p>
 
 <h2 v-click class="!text-lg text-light !-mbs-1">Pourquoi est-ce important ?</h2>
 
 <ul mis-10>
-  <listItem label="✅ Expérience utilisateur optimale et similaire sur tous les appareils"/>
+<listItem label="✅ Expérience utilisateur optimale et similaire sur tous les appareils"/>
   <listItem label="✅ Meilleur référencement SEO, un seul site à référencer <small>(de plus **Google** favorise les sites responsive)</small>"/>
   <listItem label="✅ Un seul code HTML/CSS à maintenir"/>
 </ul>
@@ -81,76 +81,10 @@ layout: default
 transition: slide-up
 ---
 
-<h1>Nouvelle syntaxe</h1>
-
-<p>Depuis les dernières versions de CSS, il est possible d'utiliser une nouvelle notation pour les media queries :</p>
-
-<div mbs-3 grid grid-cols-2 gap-5>
-  <h3 v-click class="!text-lg text-light text-center">Avant</h3>
-  <h3 v-after class="!text-lg text-light text-center">Après</h3>
-
-<div v-click>
-```css
-@media (min-width: 768px) {
-  ...
-}
-```
-</div>
-<div v-after>
-```css
-@media (width >= 768px) {
-  ...
-}
-```
-</div>
-
-
-<div v-click>
-```css
-@media (max-width: 1080px) {
-...
-}
-```
-</div>
-<div v-after>
-```css
-@media (width <= 1080px) {
-...
-}
-```
-</div>
-
-
-<div v-click>
-```css
-@media (min-width: 400px) 
-    and (max-width: 600px) {
-...
-}
-```
-</div>
-
-<div v-after>
-```css
-@media (400px <= width <= 600px ) {
-...
-}
-```
-</div>
-
-</div>
-
-<SlideFooter/>
-
----
-layout: default
-transition: slide-up
----
-
 <h1>Les breakpoints</h1>
 
 <p>Dans l'exemple précédent, nous avons modifié le style à <b>768px</b>. Cette valeur est appelée un <b><u>breakpoint</u></b>.</p>
-<p>Les <b>breakpoints</b> sont définis par les UI/UX designers et peuvent varier d'un projet à l'autre. <br/>En général on défini 3 <b>breakpoints</b> correspondants au <b>mobile</b>, à la <b>tablette</b> et au <b>desktop</b>.</p>
+<p>Les <b>breakpoints</b> sont définis par les UI/UX designers et peuvent varier d'un projet à l'autre. <br/>En général on défini au moins 3 <b>breakpoints</b> correspondants au <b>mobile</b>, à la <b>tablette</b> et au <b>desktop</b>.</p>
 
 
 <table v-click>
@@ -242,12 +176,78 @@ layout: default
 transition: slide-up
 ---
 
+<h1>Nouvelle syntaxe</h1>
+
+<p>Depuis les dernières versions de CSS, il est possible d'utiliser une nouvelle notation pour les media queries :</p>
+
+<div mbs-3 grid grid-cols-2 gap-5>
+  <h3 v-click class="!text-lg text-light text-center">Avant</h3>
+  <h3 v-after class="!text-lg text-light text-center">Après</h3>
+
+<div v-click>
+```css
+@media (min-width: 768px) {
+  ...
+}
+```
+</div>
+<div v-after>
+```css
+@media (width >= 768px) {
+  ...
+}
+```
+</div>
+
+
+<div v-click>
+```css
+@media (max-width: 1080px) {
+...
+}
+```
+</div>
+<div v-after>
+```css
+@media (width <= 1080px) {
+...
+}
+```
+</div>
+
+
+<div v-click>
+```css
+@media (min-width: 400px) 
+    and (max-width: 600px) {
+...
+}
+```
+</div>
+
+<div v-after>
+```css
+@media (400px <= width <= 600px ) {
+...
+}
+```
+</div>
+
+</div>
+
+<SlideFooter/>
+
+---
+layout: default
+transition: slide-up
+---
+
 <h1>Le type de média</h1>
 
 <p>Grâce aux <b>Media Queries</b> on peux définir un style différent en fonction du média utilisé :</p>
 
 <ul mbs-3 mis-10>
-  <ListItem label="<kbd>screen</kbd> : Concerne les écran, quelque soit le device."/>
+  <ListItem label="<kbd>screen</kbd> : Concerne les écran, quelque soit le type d'appareil."/>
   <ListItem label="<kbd>print</kbd> : Ne s'applique que pour l'impression. On peut par exemple retirer les **background-color**."/>
   <ListItem label="<kbd>all</kbd> : S'applique dans tous les cas, c'est la valeur par défaut."/>
 </ul>
