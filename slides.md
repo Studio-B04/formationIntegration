@@ -58,19 +58,19 @@ src: ./slides/semantique.html
 
 
 --- 
-title: La sémantique HTML
+title: Le Responsive Design
 src: ./slides/responsive.html
 ---
 
 
 --- 
-title: La sémantique HTML
+title: Les Bonnes Pratiques
 src: ./slides/bonnes-pratiques.html
 ---
 
 
 --- 
-title: La sémantique HTML
+title: Les Design Patterns
 src: ./slides/design-patterns.html
 ---
 
